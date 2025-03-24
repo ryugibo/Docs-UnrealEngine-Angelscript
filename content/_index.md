@@ -4,9 +4,9 @@ title = "Index"
 
 # Unreal Engine Angelscript
 UnrealEngine-Angelscript is a set of engine modifications and a plugin for UE5 that integrates a
-full-featured scripting language.
-It is actively developed by [Hazelight](http://hazelight.se), creators of [It Takes Two](https://www.ea.com/games/it-takes-two), which was shipped with the majority of its gameplay written in angelscript.
-More recently, [The Talos Principle 2](https://www.thetalosprinciple.com/) was also shipped by [Croteam](http://www.croteam.com/) using UnrealEngine-Angelscript.
+full-featured scripting language.  
+It is actively developed by [Hazelight](http://hazelight.se), creators of [Split Fiction](https://www.ea.com/games/split-fiction/split-fiction) and [It Takes Two](https://www.ea.com/games/it-takes-two), which were shipped with the majority of their gameplay written in angelscript.  
+Games from [several other studios](project/resources) have also been released using UnrealEngine-Angelscript.
 
 The unreal plugin that integrates angelscript is open source, and has received contributions from studios in Stockholm and globally.
 
@@ -35,7 +35,8 @@ Programmers used to working in Unreal C++ will find the scripts instantly famili
 ### Script Hotreload for Fast Iteration
 See your changes to scripted actors and components reflected immediately when you hit save.
 
-Non-structural changes can be reloaded *while* playing your game for lightning-fast iteration.
+All modifications to scripts can be reloaded without restarting the Unreal Editor.
+While running the game in PIE (Play In Editor), non-structural changes to the script code can also be reloaded without having to exit the play session!
 
 ![Properties](/img/properties.png)
 

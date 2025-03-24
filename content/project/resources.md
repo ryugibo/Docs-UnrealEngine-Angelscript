@@ -9,13 +9,14 @@ weight = 15
 * [The Talos Principle 2](https://www.thetalosprinciple.com/), by [Croteam](http://www.croteam.com/) (2023)
 * [THE FINALS](https://www.reachthefinals.com/), by [Embark Studios](https://www.embark-studios.com/) (2023)
 * [Archons](https://store.steampowered.com/app/2779570/Archons/), by [BulletHell Studios](https://www.bullethellstudios.com/) (2024)
+* [Split Fiction](https://www.ea.com/games/split-fiction/split-fiction), by [Hazelight](https://hazelight.se) (2025)
 * [ARC Raiders](https://www.arcraiders.com/), by [Embark Studios](https://www.embark-studios.com/) (TBA)
 
 ## Documentation and Examples
 * [Creating Widgets with Unreal & Angelscript](https://www.predictable-paul.com/blog/unreal-angelscript-widgets/)  
   A nice overview on how to interact with UMG widget blueprints through script
 
-# Development Resources
+## Development Resources
 * [Unreal Angelscript Clang-Format](https://marketplace.visualstudio.com/items?itemName=Hazelight.unreal-angelscript-clang-format)  
   Extension for vscode to use clang-format to format UE-AS scripts
 * [GameplayMessageRouter with Angelscript](https://github.com/IncantaUnreal/GameplayMessageRouter)  
