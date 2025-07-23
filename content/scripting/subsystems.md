@@ -30,7 +30,7 @@ For example, a scripted world subsystem might look like this:
 
 Any `UFUNCTION`s you've declared can also be accessed from blueprint on your subsystem:
 
-![](/img/scripted-subsystem.png)
+{{ img(path="scripted-subsystem.png") }}
 
 ## Local Player Subsystems
 In case of local player subsystems, you need to pass which `ULocalPlayer` to retrieve the subsystem for into the `::Get()` function:

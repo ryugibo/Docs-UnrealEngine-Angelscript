@@ -28,13 +28,13 @@ If needed, you can take a reference to a struct to modify it:
 ## Declaring Out Parameters
 When a function with a struct reference is called from a blueprint node, the struct will be passed as an input value:
 
-![](/img/struct-input.png)
+{{ img(path="struct-input.png") }}
 
 When you want a struct parameter to be an ouput value only, declare the reference as `&out` in script. This works to create output pins for primitives as well:
 
 <div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">OutputRandomizedStruct</span><span style="color: #d4d4d4;">(</span><span style="color: #4ec9b0;">FExampleStruct</span><span style="color: #d4d4d4;">&amp;out </span><span style="color: #9cdcfe;">OutputStruct</span><span style="color: #d4d4d4;">, </span><span style="color: #569cd6;">bool</span><span style="color: #d4d4d4;">&amp;out </span><span style="color: #9cdcfe;">bOutSuccessful</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">FExampleStruct</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">ResultStruct</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #9cdcfe;">ResultStruct</span><span style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">ExampleNumber</span><span style="color: #d4d4d4;"> = </span><span style="color: #4ec9b0;">Math</span><span style="color: #d4d4d4;">::</span><span style="color: #dcdcaa;">RandRange</span><span style="color: #d4d4d4;">(</span><span style="color: #b5cea8;">0.0</span><span style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">1.0</span><span style="color: #d4d4d4;">);</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #9cdcfe;">OutputStruct</span><span style="color: #d4d4d4;"> = </span><span style="color: #9cdcfe;">ResultStruct</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #9cdcfe;">bOutSuccessful</span><span style="color: #d4d4d4;"> = </span><span style="color: #569cd6;">true</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
 
-![](/img/struct-multioutput.png)
+{{ img(path="struct-multioutput.png") }}
 
 ## Automatic References for Function Parameters
 As an implementation detail: script functions never take struct parameters by value.  

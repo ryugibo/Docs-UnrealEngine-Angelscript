@@ -21,7 +21,7 @@ Make sure you have the following set up:
 * Start Visual Studio Code, and from the menu `File -> Open Folder`, open your new `MyProject/Script/` folder.
 
 > **Tip:** You can also click the "Open Angelscript workspace" option from the Tools menu to automatically open the scripts folder in Visual Studio Code.
-> ![](/img/open-workspace.png)
+> {{ img(path="path="open-workspace.png"") }}
 
 ## Creating the Actor Class
 Within Visual Studio Code, create a new file and call it `IntroductionActor.as`.
@@ -41,7 +41,7 @@ Immediately after hitting "Save" on our script file, it should become available 
 * Search for "Introduction Actor". Your new scripted actor should appear in the list.
 * Place the "Introduction Actor" into your level.
 
-![](/img/place-actors.png)
+{{ img(path="path="place-actors.png"") }}
 
 ## Adding Functionality to the Actor
 We have a totally empty actor in the level now with no functionality.
@@ -52,7 +52,7 @@ As an example, let's make this actor perform a configurable countdown:
 Some of the important things that are happening here:
 * The `CountdownDuration` variable has been declared as a `UPROPERTY()`, this makes it configurable from the Unreal editor. You can select the actor in the level and change the countdown duration to be higher or lower than the default 5 seconds.  
   *See the documentation on [Properties and Accessors](/scripting/properties-and-accessors/)*  
-  ![](/img/countdown-duration.png)
+  {{ img(path="countdown-duration.png") }}
 * We override the `BeginPlay` and `Tick` events to implement functionality on the actor.  
   *See the documentation on [Functions and BlueprintEvents](/scripting/functions-and-events/)*
 * When BeginPlay happens, we start our countdown.
@@ -60,7 +60,7 @@ Some of the important things that are happening here:
 * After the countdown is done, we use `Print()` to show a message on screen.
 
 Now, if you play the level the actor is placed in and wait 5 seconds, you will see the message appear:
-![](/img/countdown-print.png)
+{{ img(path="countdown-print.png") }}
 
 ## Adding Components to the Actor
 Right now, our Actor is still empty of any components, and only implements some functionality on tick.
@@ -75,7 +75,7 @@ When you save your script file, you should see the new components appear on the 
 
 You can read more about adding components on the [Actors and Components](/scripting/actors-components/) page.
 
-![](/img/intro-components.png)
+{{ img(path="intro-components.png") }}
 
 > **Tip:** Clicking one of the *"Edit in C++"* links in the components menu will jump your Visual Studio Code to the place the component is added in your script.  
 > The angelscript plugin often hooks into Unreal's normal C++ functionality, so script classes behave like C++ classes in many ways.
@@ -90,11 +90,11 @@ Instead, let's create a Blueprint of our new introduction actor:
 
 * Open the Content Browser, and click `Add -> Blueprint Class`, to use the normal way to create a new blueprint.
 * When asked to pick a Parent Class, search for our "Introduction Actor" and select it:  
-  ![](/img/bp-pickparent.png)
+  {{ img(path="bp-pickparent.png") }}
 * Let's call our new blueprint `BP_IntroductionActor`, so it's clear that we're dealing with an actor blueprint.
 * Now we can open our new blueprint and choose a mesh for its Static Mesh Component.  
   Here I am choosing the engine's standard `SM_Cube` mesh, but feel free to choose one of your own.  
-  ![](/img/choose-staticmesh.png)
+  {{ img(path="choose-staticmesh.png") }}
 * Make sure to remove the existing `IntroductionActor` from your level, and place a new `BP_IntroductionActor` in the level so we can see it!
 
 ## Calling in and out of Blueprint
@@ -108,7 +108,7 @@ In our `IntroductionActor.as`, change the script code for its BeginPlay and Tick
 
 After saving this change, we can now open `BP_IntroductionActor`, and add nodes like this:
 
-![](/img/intro-bpnodes.png)
+{{ img(path="intro-bpnodes.png") }}
 
 Now, the blueprint must specifically start the countdown, and when the countdown is finished the blueprint will automatically destroy the actor.
 

@@ -28,7 +28,7 @@ Some key benefits that this plugin helps achieve:
 ## Features
 ### Familiar but Simplified
 
-![](/img/scripting.png)
+{{ img(path="scripting.png") }}
 
 Programmers used to working in Unreal C++ will find the scripts instantly familiar, but with many key simplifications to make life easier for designers and avoid common C++ pitfalls.
 
@@ -38,7 +38,7 @@ See your changes to scripted actors and components reflected immediately when yo
 All modifications to scripts can be reloaded without restarting the Unreal Editor.
 While running the game in PIE (Play In Editor), non-structural changes to the script code can also be reloaded without having to exit the play session!
 
-![Properties](/img/properties.png)
+{{ img(path="properties.png", alt="Properties") }}
 
 ### Scripting with Full Editor Support
 
@@ -51,7 +51,7 @@ This includes support for many editor features, such as:
 * Find All References
 * Semantic Highlighting
 
-![](/img/timer.png)
+{{ img(path="timer.png") }}
 
 ### Integration with existing C++ and Blueprint workflows
 Angelscript classes can override any BlueprintImplementableEvent you expose from C++,
@@ -59,10 +59,10 @@ and can be used seamlessly as base classes for child blueprints.
 
 Use whatever combination of tools fits your workflow best.
 
-![Functions](/img/functions.png)
+{{ img(path="functions.png", alt="Functions") }}
 
 ### Debugging Support Through Visual Studio Code
 Debug your script code through the Visual Studio Code extension.
 Set breakpoints and inspect variables, and step through your scripts to find issues.
 
-![Debugging](/img/debug.png)
+{{ img(path="debug.png", alt="Debugging") }}

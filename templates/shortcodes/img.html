@@ -1,0 +1,2 @@
+{% set full_path = "img/" ~ path %}
+<img src="{{ get_url(path=full_path) }}" alt="{{ alt | default(value="") | escape }}" />

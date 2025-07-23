@@ -28,11 +28,11 @@ The visual studio code extension has helpers for easily overriding blueprint eve
 
 When the cursor is within a class, you can click the Lightbulb icon (or press <kbd>Ctrl</kbd> + <kbd>.</kbd> by default) to choose a function to override:
 
-![](/img/override-lightbulb.png)
+{{ img(path="override-lightbulb.png") }}
 
 Typing the name of an overridable event also suggests a completion for the full function signature:
 
-![](/img/override-completion.png)
+{{ img(path="override-completion.png") }}
 
 > **Note:** For C++ functions that don't explicitly specify a `ScriptName` meta tag, some name simplification is automatically done to remove common prefixes.  
 > For example, the C++ event is called `ReceiveBeginPlay`, but the preceeding `Receive` is removed and it just becomes `BeginPlay` in script.  
@@ -55,7 +55,7 @@ For example, a pickup actor might do:
 
 <div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">AExamplePickupActor</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">AActor</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">PickedUp</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// We always want this script code to run, even if our blueprint child wants to do something too</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #d7ba7d;">f"</span><span style="color: #ce9178;">Pickup </span><span style="color: #569cd6;">{this}</span><span style="color: #ce9178;"> was picked up!</span><span style="color: #d7ba7d;">"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">SetActorHiddenInGame</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">false</span><span style="color: #d4d4d4;">);</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// Call the separate blueprint event</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">BP_PickedUp</span><span style="color: #d4d4d4;">();</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #6a9955;">// Allows blueprints to add functionality, does not contain any code</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintEvent</span><span style="color: #d4d4d4;">, </span><span style="color: #569cd6;">DisplayName</span><span style="color: #d4d4d4;"> = </span><span style="color: #ce9178;">"Picked Up"</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">BP_PickedUp</span><span style="color: #d4d4d4;">() {}</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
 
-![](/img/bp-override.png)
+{{ img(path="bp-override.png") }}
 
 ## Global Functions
 Any script function in global scope can also have `UFUNCTION()` added to it.
@@ -65,7 +65,7 @@ This lets you create functions not bound to a class, similar to how Blueprint Fu
 
 <div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: Consolas, 'Courier New', monospace;font-weight: normal;font-size: 16px;line-height: 21px;white-space: pre;"><div><span style="color: #6a9955;">// Example global function that moves an actor somewhat</span></div><div><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">ExampleGlobalFunctionMoveActor</span><span style="color: #d4d4d4;">(</span><span style="color: #4ec9b0;">AActor</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Actor</span><span style="color: #d4d4d4;">, </span><span style="color: #4ec9b0;">FVector</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">MoveAmount</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #9cdcfe;">Actor</span><span style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">ActorLocation</span><span style="color: #d4d4d4;"> += </span><span style="color: #9cdcfe;">MoveAmount</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
 
-![](/img/example-global-function.png)
+{{ img(path="example-global-function.png") }}
 
 > **Tip:** Comments above function declarations become tooltips in blueprint, just like in C++
 

@@ -140,16 +140,16 @@ Angelscript.IntegrationTest.Your.Path.ComplexIntegrationTest_PotionsAreTooStrong
 # Code Coverage
 Enable code coverage in Project Settings > Editor > Angelscript Test settings (or pass -as-enable-code-coverage on the command line). Note, code coverage slows down editor startup by ~20 seconds so remember to turn it off later.
 
-![CoverageToggle](/img/coverage-toggle.png)
+{{ img(path="coverage-toggle.png", alt="CoverageToggle") }}
 
 Run some tests as described above. The editor will write a report to Saved/CodeCoverage. Note: it's overwritten each time you start a new test run.
 
-![CoverageDir](/img/coverage-dir.png)
+{{ img(path="coverage-dir.png", alt="CoverageDir") }}
 
 Open index.html to see a summary for all your angelscript.
 
-![CoverageIndex](/img/coverage-index.png)
+{{ img(path="coverage-index.png", alt="CoverageIndex") }}
 
 Open individual files to see their line coverage.
 
-![CoverageDir](/img/coverage-file.png)
+{{ img(path="coverage-file.png", alt="CoverageDir") }}

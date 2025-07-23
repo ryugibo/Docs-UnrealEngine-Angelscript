@@ -18,7 +18,7 @@ To expose a property to unreal, add a `UPROPERTY()` specifier above it.
 
 <div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">AExampleActor</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">AActor</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #6a9955;">// Tooltip of the property</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UPROPERTY</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">EditableProperty</span><span style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">10.0</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
 
-![](/img/editable-property.png)
+{{ img(path="editable-property.png") }}
 
 > **Note:** It is not necessary to add `EditAnywhere` to properties in script. Unlike in C++, this is assumed as the default in script.
 
@@ -29,7 +29,7 @@ To be more specific about where/when a property should be editable from the edit
 ## Blueprint Accessible Properties
 When a property is declared with `UPROPERTY()`, it also automatically becomes usable within blueprint:
 
-![](/img/bp-properties.png)
+{{ img(path="bp-properties.png") }}
 
 To limit the blueprint from reading or writing to the property, you can use one of the following specifiers:
 
@@ -43,7 +43,7 @@ Categories help organize your properties in the editor UI:
 
 <div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">AExampleActor</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">AActor</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UPROPERTY</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">Category</span><span style="color: #d4d4d4;"> = </span><span style="color: #ce9178;">"First Category"</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">FirstProperty</span><span style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">0.0</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UPROPERTY</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">Category</span><span style="color: #d4d4d4;"> = </span><span style="color: #ce9178;">"Second Category"</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">SecondProperty</span><span style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">0.0</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UPROPERTY</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">Category</span><span style="color: #d4d4d4;"> = </span><span style="color: #ce9178;">"Second Category|Child Category"</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">FString</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">ChildProperty</span><span style="color: #d4d4d4;"> = </span><span style="color: #ce9178;">"StringValue"</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
 
-![](/img/property-categories.png)
+{{ img(path="property-categories.png") }}
 
 # Property Accessor Functions
 Script methods that start with `Get..()` or `Set..()` can use the `property` keyword to allow them to be used as if they are properties.

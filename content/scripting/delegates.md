@@ -31,11 +31,11 @@ Declare events with the `event` keyword in global scope, then use `AddUFunction(
 By declaring `OnExampleEvent` as a `UPROPERTY()` in the previous example, we allow it to be accessed from blueprint.
 For events this means it will appear in the `Event Dispatchers` list for actors in the level, and we can bind it from the level blueprint:
 
-![](/img/bp-event-dispatcher.png)
+{{ img(path="bp-event-dispatcher.png") }}
 
 ## Tip: Automatic signature generation in Visual Studio Code
 If you bind a delegate or add a function to an event, and the function does not exist yet, the visual studio code extension will try to offer to create it for you.
 
 Click the lightbulb icon or press <kbd>Ctrl</kbd> + <kbd>.</kbd>, and select the `Generate Method` option from the code actions dropdown:
 
-![](/img/generate-method.png)
+{{ img(path="generate-method.png") }}
