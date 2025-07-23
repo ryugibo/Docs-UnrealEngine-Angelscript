@@ -130,7 +130,7 @@ Opening your project will automatically create an empty <code>Script/</code> fol
 </ul>
 <blockquote>
 <p><strong>Tip:</strong> You can also click the "Open Angelscript workspace" option from the Tools menu to automatically open the scripts folder in Visual Studio Code.
-<img src="/img/open-workspace.png" alt="" /></p>
+{{ img(path="path="open-workspace.png"") }}</p>
 </blockquote>
 <h2 id="creating-the-actor-class">Creating the Actor Class</h2>
 <p>Within Visual Studio Code, create a new file and call it <code>IntroductionActor.as</code>.</p>
@@ -145,7 +145,7 @@ Opening your project will automatically create an empty <code>Script/</code> fol
 <li>Search for "Introduction Actor". Your new scripted actor should appear in the list.</li>
 <li>Place the "Introduction Actor" into your level.</li>
 </ul>
-<p><img src="/img/place-actors.png" alt="" /></p>
+<p>{{ img(path="path="place-actors.png"") }}</p>
 <h2 id="adding-functionality-to-the-actor">Adding Functionality to the Actor</h2>
 <p>We have a totally empty actor in the level now with no functionality.
 As an example, let's make this actor perform a configurable countdown:</p>
@@ -154,7 +154,8 @@ As an example, let's make this actor perform a configurable countdown:</p>
 <ul>
 <li>The <code>CountdownDuration</code> variable has been declared as a <code>UPROPERTY()</code>, this makes it configurable from the Unreal editor. You can select the actor in the level and change the countdown duration to be higher or lower than the default 5 seconds.<br />
 <em>See the documentation on <a href="/scripting/properties-and-accessors/">Properties and Accessors</a></em><br />
-<img src="/img/countdown-duration.png" alt="" /></li>
+
+<img src="https://ryugibo.github.io/ueas/img/countdown-duration.png" alt="" /></li>
 <li>We override the <code>BeginPlay</code> and <code>Tick</code> events to implement functionality on the actor.<br />
 <em>See the documentation on <a href="/scripting/functions-and-events/">Functions and BlueprintEvents</a></em></li>
 <li>When BeginPlay happens, we start our countdown.</li>
@@ -162,7 +163,8 @@ As an example, let's make this actor perform a configurable countdown:</p>
 <li>After the countdown is done, we use <code>Print()</code> to show a message on screen.</li>
 </ul>
 <p>Now, if you play the level the actor is placed in and wait 5 seconds, you will see the message appear:
-<img src="/img/countdown-print.png" alt="" /></p>
+
+<img src="https://ryugibo.github.io/ueas/img/countdown-print.png" alt="" /></p>
 <h2 id="adding-components-to-the-actor">Adding Components to the Actor</h2>
 <p>Right now, our Actor is still empty of any components, and only implements some functionality on tick.</p>
 <p>Let's add some components to it! We want a <code>Scene Component</code> as the root, and then attach a <code>Static Mesh Component</code> and a <code>Billboard Component</code> to it.</p>
@@ -170,7 +172,8 @@ As an example, let's make this actor perform a configurable countdown:</p>
 <div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">AIntroductionActor</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">AActor</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UPROPERTY</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">DefaultComponent</span><span style="color: #d4d4d4;">, </span><span style="color: #569cd6;">RootComponent</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">USceneComponent</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">SceneRoot</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UPROPERTY</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">DefaultComponent</span><span style="color: #d4d4d4;">, </span><span style="color: #569cd6;">Attach</span><span style="color: #d4d4d4;"> = SceneRoot)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">UStaticMeshComponent</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Mesh</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UPROPERTY</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">DefaultComponent</span><span style="color: #d4d4d4;">, </span><span style="color: #569cd6;">Attach</span><span style="color: #d4d4d4;"> = SceneRoot)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">UBillboardComponent</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Billboard</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">....</span></div></div>
 <p>When you save your script file, you should see the new components appear on the Introduction Actor you've placed in the level.</p>
 <p>You can read more about adding components on the <a href="/scripting/actors-components/">Actors and Components</a> page.</p>
-<p><img src="/img/intro-components.png" alt="" /></p>
+
+<img src="https://ryugibo.github.io/ueas/img/intro-components.png" alt="" />
 <blockquote>
 <p><strong>Tip:</strong> Clicking one of the <em>"Edit in C++"</em> links in the components menu will jump your Visual Studio Code to the place the component is added in your script.<br />
 The angelscript plugin often hooks into Unreal's normal C++ functionality, so script classes behave like C++ classes in many ways.</p>
@@ -182,11 +185,13 @@ The angelscript plugin often hooks into Unreal's normal C++ functionality, so sc
 <ul>
 <li>Open the Content Browser, and click <code>Add -&gt; Blueprint Class</code>, to use the normal way to create a new blueprint.</li>
 <li>When asked to pick a Parent Class, search for our "Introduction Actor" and select it:<br />
-<img src="/img/bp-pickparent.png" alt="" /></li>
+
+<img src="https://ryugibo.github.io/ueas/img/bp-pickparent.png" alt="" /></li>
 <li>Let's call our new blueprint <code>BP_IntroductionActor</code>, so it's clear that we're dealing with an actor blueprint.</li>
 <li>Now we can open our new blueprint and choose a mesh for its Static Mesh Component.<br />
 Here I am choosing the engine's standard <code>SM_Cube</code> mesh, but feel free to choose one of your own.<br />
-<img src="/img/choose-staticmesh.png" alt="" /></li>
+
+<img src="https://ryugibo.github.io/ueas/img/choose-staticmesh.png" alt="" /></li>
 <li>Make sure to remove the existing <code>IntroductionActor</code> from your level, and place a new <code>BP_IntroductionActor</code> in the level so we can see it!</li>
 </ul>
 <h2 id="calling-in-and-out-of-blueprint">Calling in and out of Blueprint</h2>
@@ -198,7 +203,8 @@ Here I am choosing the engine's standard <code>SM_Cube</code> mesh, but feel fre
 <p>In our <code>IntroductionActor.as</code>, change the script code for its BeginPlay and Tick functions to this:</p>
 <div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintOverride</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">BeginPlay</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// We no longer start the countdown on BeginPlay automatically</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">StartCountdown</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// Start the countdown when StartCountdown() is called </span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">CurrentTimer</span><span style="color: #d4d4d4;"> = </span><span style="color: #9cdcfe;">CountdownDuration</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">bCountdownActive</span><span style="color: #d4d4d4;"> = </span><span style="color: #569cd6;">true</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #6a9955;">/**</span></div><div><span style="color: #6a9955;">&#160; &#160; &#160;* Declare an overridable event so the actor blueprint can</span></div><div><span style="color: #6a9955;">&#160; &#160; &#160;* respond when the countdown finishes</span></div><div><span style="color: #6a9955;">&#160; &#160; &#160;*/</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintEvent</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">FinishedCountdown</span><span style="color: #d4d4d4;">() {}</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintOverride</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">Tick</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">DeltaSeconds</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #569cd6;">if</span><span style="color: #d4d4d4;"> (</span><span style="color: #9cdcfe;">bCountdownActive</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// Count down the timer </span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">CurrentTimer</span><span style="color: #d4d4d4;"> -= </span><span style="color: #9cdcfe;">DeltaSeconds</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #569cd6;">if</span><span style="color: #d4d4d4;"> (</span><span style="color: #9cdcfe;">CurrentTimer</span><span style="color: #d4d4d4;"> &lt;= </span><span style="color: #b5cea8;">0.0</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// The countdown was complete!</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// Print a message to the screen</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"Countdown was completed!"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// Also: trigger a blueprint event</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">FinishedCountdown</span><span style="color: #d4d4d4;">();</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">bCountdownActive</span><span style="color: #d4d4d4;"> = </span><span style="color: #569cd6;">false</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; }</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; }</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div></div>
 <p>After saving this change, we can now open <code>BP_IntroductionActor</code>, and add nodes like this:</p>
-<p><img src="/img/intro-bpnodes.png" alt="" /></p>
+
+<img src="https://ryugibo.github.io/ueas/img/intro-bpnodes.png" alt="" />
 <p>Now, the blueprint must specifically start the countdown, and when the countdown is finished the blueprint will automatically destroy the actor.</p>
 <p>If you play the level with the blueprint placed, you will see it disappear after 5 seconds.</p>
 <h1 id="script-examples">Script Examples</h1>
