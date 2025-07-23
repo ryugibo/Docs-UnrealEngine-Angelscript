@@ -1,4 +1,4 @@
-base_url = "https://angelscript.hazelight.se"
+base_url = "https://ryugibo.github.io/ueas"
 title = "Unreal Engine Angelscript"
 compile_sass = true
 build_search_index = true
