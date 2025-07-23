@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://angelscript.hazelight.se/docs.css">
+    <link rel="icon" href="https://angelscript.hazelight.se/favicon.svg">
+    <title> Unreal Engine Angelscript | Script Mixin Libraries </title>
+</head>
+<body>
+	<main>
+		<nav>
+			<a href="https:&#x2F;&#x2F;angelscript.hazelight.se">
+				<img src="https://angelscript.hazelight.se/angelscript_unreal.png" alt=""/>
+			</a>
+
+			<ul>
+				<li>
+					<a href="https:&#x2F;&#x2F;angelscript.hazelight.se">Home</a>
+				</li>
+				<li>
+					<a href="https://discord.gg/39wmC2e">Join Discord Server</a>
+				</li>
+				<li>
+					<a href="https://angelscript.hazelight.se/api">Script API Reference</a>
+				</li>
+			</ul>
+
+			<label>Getting Started</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/getting-started/installation/">Installation</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/getting-started/introduction/">Scripting Introduction</a>
+				</li>
+				</ul>
+			<label>Script Features</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/functions-and-events/">Functions and BlueprintEvents</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/properties-and-accessors/">Properties and Accessors</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/actors-components/">Actors and Components</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/function-libraries/">Function Libraries</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/fname-literals/">FName Literals</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/format-strings/">Formatted Strings</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/structs-refs/">Structs and References</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/networking-features/">Networking Features</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/delegates/">Delegates and Events</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/mixin-methods/">Mixin Methods</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/gameplaytags/">Gameplay Tags</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/editor-script/">Editor-Only Script</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/subsystems/">Subsystems</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/script-tests/">Script Tests</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/cpp-differences/">Differences with Unreal C++</a>
+				</li>
+				</ul>
+			<label>C++ Usage and Bindings</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/automatic-bindings/">Automatic Bindings</a>
+				</li>
+				<li class="active">
+					<a href="https://angelscript.hazelight.se/cpp-bindings/mixin-libraries/">Script Mixin Libraries</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/precompiled-data/">Using Precompiled Scripts</a>
+				</li>
+				</ul>
+			<label>UE-AS Development</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/development-status/">Development Status</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/resources/">Resources and Links</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/license/">License</a>
+				</li>
+				</ul>
+			</nav>
+		<article>
+			
+	<h1 id="script-mixin-libraries">Script Mixin Libraries</h1>
+<p>Instead of adding new namespaced static functions for scripts, it can be useful to provide additional <em>methods</em> on existing types.</p>
+<p>To do this, use the <code>ScriptMixin</code> metadata on a C++ class with static functions.<br />
+Any static function whose first argument matches the type specified in the metadata will be bound as a method on that type.</p>
+<p>A common use case for this is to add methods to <code>USTRUCT</code>s, which cannot have <code>UFUNCTION</code>s on them, and as such cannot have methods using normal automatic bindings.</p>
+<h2 id="mixin-libraries-for-structs">Mixin Libraries for Structs</h2>
+<p>For example, the following C++ mixin library class adds two new methods to the <code>FVector</code> struct in script:</p>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#bf616a;">UCLASS</span><span>(Meta = (ScriptMixin = &quot;</span><span style="color:#a3be8c;">FVector</span><span>&quot;))
+</span><span style="color:#b48ead;">class</span><span> UFVectorScriptMixinLibrary : public UObject
+</span><span>{
+</span><span>	</span><span style="color:#bf616a;">GENERATED_BODY</span><span>()
+</span><span>public:
+</span><span>
+</span><span>	</span><span style="color:#65737e;">// This will be accessible in script as
+</span><span>	</span><span style="color:#65737e;">//     FVector Vector;
+</span><span>	</span><span style="color:#65737e;">//     Vector.ResetTo(4.0);
+</span><span>	</span><span style="color:#bf616a;">UFUNCTION</span><span>(ScriptCallable)
+</span><span>	</span><span style="color:#b48ead;">static void </span><span style="color:#bf616a;">ResetTo</span><span>(FVector&amp; Vector, </span><span style="color:#b48ead;">float</span><span> NewValue)
+</span><span>	{
+</span><span>		Vector = </span><span style="color:#bf616a;">FVector</span><span>(NewValue, NewValue, NewValue);
+</span><span>	}
+</span><span>
+</span><span>	</span><span style="color:#65737e;">// This will become a const method, as it takes
+</span><span>	</span><span style="color:#65737e;">// a const reference to the mixin type:
+</span><span>	</span><span style="color:#65737e;">//  Usable in script as both   Vector.SummedValue
+</span><span>	</span><span style="color:#65737e;">//                        or   Vector.GetSummedValue()
+</span><span>	</span><span style="color:#bf616a;">UFUNCTION</span><span>(ScriptCallable)
+</span><span>	</span><span style="color:#b48ead;">static float </span><span style="color:#bf616a;">GetSummedValue</span><span>(</span><span style="color:#b48ead;">const</span><span> FVector&amp; Vector)
+</span><span>	{
+</span><span>		</span><span style="color:#b48ead;">return</span><span> Vector.</span><span style="color:#bf616a;">X</span><span>+Vector.</span><span style="color:#bf616a;">Y</span><span>+Vector.</span><span style="color:#bf616a;">Z</span><span>;
+</span><span>	}
+</span><span>}
+</span></code></pre>
+<h2 id="mixin-libraries-for-classes">Mixin Libraries for Classes</h2>
+<p>It is also possible to add new methods to <code>UCLASS</code>es. In that case, take a pointer to the type as the first argument.</p>
+<p>The following C++ mixin library adds a new method to all <code>AActor</code>s in script:</p>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#bf616a;">UCLASS</span><span>(Meta = (ScriptMixin = &quot;</span><span style="color:#a3be8c;">AActor</span><span>&quot;))
+</span><span style="color:#b48ead;">class</span><span> UMyActorMixinLibrary : public UObject
+</span><span>{
+</span><span>	</span><span style="color:#bf616a;">GENERATED_BODY</span><span>()
+</span><span>public:
+</span><span>
+</span><span>	</span><span style="color:#65737e;">// This can be used in script as:
+</span><span>	</span><span style="color:#65737e;">//  Actor.TeleportToOrigin();
+</span><span>	</span><span style="color:#bf616a;">UFUNCTION</span><span>(ScriptCallable)
+</span><span>	</span><span style="color:#b48ead;">static void </span><span style="color:#bf616a;">TeleportToOrigin</span><span>(AActor* Actor)
+</span><span>	{
+</span><span>		Actor-&gt;</span><span style="color:#bf616a;">SetActorLocation</span><span>(</span><span style="color:#bf616a;">FVector</span><span>(</span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">0</span><span>));
+</span><span>	}
+</span><span>}
+</span></code></pre>
+<blockquote>
+<p><strong>Note:</strong> The angelscript plugin comes with a number of mixin libraries in it, mostly to expose C++ functionality that is not normally exposed to blueprint.<br />
+For example, see the <a href="https://github.com/Hazelight/UnrealEngine-Angelscript/blob/angelscript-master/Engine/Plugins/Angelscript/Source/AngelscriptCode/Public/FunctionLibraries/GameplayTagMixinLibrary.h">GameplayTagMixinLibrary</a></p>
+</blockquote>
+
+</article>
+	</main>
+</body>

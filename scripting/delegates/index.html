@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://angelscript.hazelight.se/docs.css">
+    <link rel="icon" href="https://angelscript.hazelight.se/favicon.svg">
+    <title> Unreal Engine Angelscript | Delegates and Events </title>
+</head>
+<body>
+	<main>
+		<nav>
+			<a href="https:&#x2F;&#x2F;angelscript.hazelight.se">
+				<img src="https://angelscript.hazelight.se/angelscript_unreal.png" alt=""/>
+			</a>
+
+			<ul>
+				<li>
+					<a href="https:&#x2F;&#x2F;angelscript.hazelight.se">Home</a>
+				</li>
+				<li>
+					<a href="https://discord.gg/39wmC2e">Join Discord Server</a>
+				</li>
+				<li>
+					<a href="https://angelscript.hazelight.se/api">Script API Reference</a>
+				</li>
+			</ul>
+
+			<label>Getting Started</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/getting-started/installation/">Installation</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/getting-started/introduction/">Scripting Introduction</a>
+				</li>
+				</ul>
+			<label>Script Features</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/functions-and-events/">Functions and BlueprintEvents</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/properties-and-accessors/">Properties and Accessors</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/actors-components/">Actors and Components</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/function-libraries/">Function Libraries</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/fname-literals/">FName Literals</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/format-strings/">Formatted Strings</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/structs-refs/">Structs and References</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/networking-features/">Networking Features</a>
+				</li>
+				<li class="active">
+					<a href="https://angelscript.hazelight.se/scripting/delegates/">Delegates and Events</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/mixin-methods/">Mixin Methods</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/gameplaytags/">Gameplay Tags</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/editor-script/">Editor-Only Script</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/subsystems/">Subsystems</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/script-tests/">Script Tests</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/cpp-differences/">Differences with Unreal C++</a>
+				</li>
+				</ul>
+			<label>C++ Usage and Bindings</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/automatic-bindings/">Automatic Bindings</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/mixin-libraries/">Script Mixin Libraries</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/precompiled-data/">Using Precompiled Scripts</a>
+				</li>
+				</ul>
+			<label>UE-AS Development</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/development-status/">Development Status</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/resources/">Resources and Links</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/license/">License</a>
+				</li>
+				</ul>
+			</nav>
+		<article>
+			
+	<h1 id="delegates">Delegates<a class="zola-anchor" href="#delegates" aria-label="Anchor link for: delegates">🔗</a></h1>
+<p>You must first declare a delegate type to indicate what parameters and return value your delegate wants.<br />
+In global scope:</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #6a9955;">// Declare a new delegate type with this function signature</span></div><div><span style="color: #569cd6;">delegate</span><span style="color: #d4d4d4;"> </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">FExampleDelegate</span><span style="color: #d4d4d4;">(</span><span style="color: #4ec9b0;">UObject</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Object</span><span style="color: #d4d4d4;">, </span><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Value</span><span style="color: #d4d4d4;">);</span></div></div>
+<p>From there, you can pass around values of your delegate type, bind them, and execute them:</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">ADelegateExample</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">AActor</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">FExampleDelegate</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">StoredDelegate</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintOverride</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">BeginPlay</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// Bind the delegate so executing it calls this.OnDelegateExecuted()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">StoredDelegate</span><span style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">BindUFunction</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">this</span><span style="color: #d4d4d4;">, n</span><span style="color: #ce9178;">"OnDelegateExecuted"</span><span style="color: #d4d4d4;">);</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// You can also create new bound delegates by using the constructor:</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">StoredDelegate</span><span style="color: #d4d4d4;"> = </span><span style="color: #4ec9b0;">FExampleDelegateSignature</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">this</span><span style="color: #d4d4d4;">, n</span><span style="color: #ce9178;">"OnDelegateExecuted"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">private</span><span style="color: #d4d4d4;"> </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">OnDelegateExecuted</span><span style="color: #d4d4d4;">(</span><span style="color: #4ec9b0;">UObject</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Object</span><span style="color: #d4d4d4;">, </span><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Value</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #d7ba7d;">f"</span><span style="color: #ce9178;">Delegate was executed with object </span><span style="color: #569cd6;">{</span><span style="color: #9cdcfe;">Object</span><span style="color: #569cd6;">}</span><span style="color: #ce9178;"> and value </span><span style="color: #569cd6;">{</span><span style="color: #9cdcfe;">Value</span><span style="color: #569cd6;">}</span><span style="color: #d7ba7d;">"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintOverride</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">Tick</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">DeltaSeconds</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// If the delegate is bound, execute it</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">StoredDelegate</span><span style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">ExecuteIfBound</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">this</span><span style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">DeltaSeconds</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
+<blockquote>
+<p><strong>Note:</strong> A <code>delegate</code> declaration is equivalent to a <code>DECLARE_DYNAMIC_DELEGATE()</code> macro in C++.
+Functions bound to delegates are required to be declared as <code>UFUNCTION()</code>.</p>
+</blockquote>
+<h1 id="events">Events<a class="zola-anchor" href="#events" aria-label="Anchor link for: events">🔗</a></h1>
+<p>Events are similar to delegates, but can have multiple functions added to them, rather than always being bound to only one function.</p>
+<p>Declare events with the <code>event</code> keyword in global scope, then use <code>AddUFunction()</code> and <code>Broadcast()</code>:</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">event</span><span style="color: #d4d4d4;"> </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">FExampleEvent</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Counter</span><span style="color: #d4d4d4;">);</span></div><br><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">AEventExample</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">AActor</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UPROPERTY</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">FExampleEvent</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">OnExampleEvent</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">private</span><span style="color: #d4d4d4;"> </span><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">CallCounter</span><span style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintOverride</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">BeginPlay</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// Add two functions to be called when the event is broadcast</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">OnExampleEvent</span><span style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">AddUFunction</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">this</span><span style="color: #d4d4d4;">, n</span><span style="color: #ce9178;">"FirstHandler"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">OnExampleEvent</span><span style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">AddUFunction</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">this</span><span style="color: #d4d4d4;">, n</span><span style="color: #ce9178;">"SecondHandler"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">private</span><span style="color: #d4d4d4;"> </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">FirstHandler</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Counter</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"Called first handler"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">private</span><span style="color: #d4d4d4;"> </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">SecondHandler</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Counter</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"Called second handler"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintOverride</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">Tick</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">DeltaSeconds</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">CallCounter</span><span style="color: #d4d4d4;"> += </span><span style="color: #b5cea8;">1</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">OnExampleEvent</span><span style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">Broadcast</span><span style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">CallCounter</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
+<blockquote>
+<p><strong>Note:</strong> An <code>event</code> declaration is equivalent to a <code>DECLARE_DYNAMIC_MULTICAST_DELEGATE()</code> macro in C++.
+Functions added to events are required to be declared as <code>UFUNCTION()</code>.</p>
+</blockquote>
+<h2 id="events-in-blueprint">Events in Blueprint<a class="zola-anchor" href="#events-in-blueprint" aria-label="Anchor link for: events-in-blueprint">🔗</a></h2>
+<p>By declaring <code>OnExampleEvent</code> as a <code>UPROPERTY()</code> in the previous example, we allow it to be accessed from blueprint.
+For events this means it will appear in the <code>Event Dispatchers</code> list for actors in the level, and we can bind it from the level blueprint:</p>
+<p><img src="/img/bp-event-dispatcher.png" alt="" /></p>
+<h2 id="tip-automatic-signature-generation-in-visual-studio-code">Tip: Automatic signature generation in Visual Studio Code<a class="zola-anchor" href="#tip-automatic-signature-generation-in-visual-studio-code" aria-label="Anchor link for: tip-automatic-signature-generation-in-visual-studio-code">🔗</a></h2>
+<p>If you bind a delegate or add a function to an event, and the function does not exist yet, the visual studio code extension will try to offer to create it for you.</p>
+<p>Click the lightbulb icon or press <kbd>Ctrl</kbd> + <kbd>.</kbd>, and select the <code>Generate Method</code> option from the code actions dropdown:</p>
+<p><img src="/img/generate-method.png" alt="" /></p>
+
+</article>
+	</main>
+</body>

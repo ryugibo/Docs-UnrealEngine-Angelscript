@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://angelscript.hazelight.se/docs.css">
+    <link rel="icon" href="https://angelscript.hazelight.se/favicon.svg">
+    <title> Unreal Engine Angelscript | Subsystems </title>
+</head>
+<body>
+	<main>
+		<nav>
+			<a href="https:&#x2F;&#x2F;angelscript.hazelight.se">
+				<img src="https://angelscript.hazelight.se/angelscript_unreal.png" alt=""/>
+			</a>
+
+			<ul>
+				<li>
+					<a href="https:&#x2F;&#x2F;angelscript.hazelight.se">Home</a>
+				</li>
+				<li>
+					<a href="https://discord.gg/39wmC2e">Join Discord Server</a>
+				</li>
+				<li>
+					<a href="https://angelscript.hazelight.se/api">Script API Reference</a>
+				</li>
+			</ul>
+
+			<label>Getting Started</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/getting-started/installation/">Installation</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/getting-started/introduction/">Scripting Introduction</a>
+				</li>
+				</ul>
+			<label>Script Features</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/functions-and-events/">Functions and BlueprintEvents</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/properties-and-accessors/">Properties and Accessors</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/actors-components/">Actors and Components</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/function-libraries/">Function Libraries</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/fname-literals/">FName Literals</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/format-strings/">Formatted Strings</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/structs-refs/">Structs and References</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/networking-features/">Networking Features</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/delegates/">Delegates and Events</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/mixin-methods/">Mixin Methods</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/gameplaytags/">Gameplay Tags</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/editor-script/">Editor-Only Script</a>
+				</li>
+				<li class="active">
+					<a href="https://angelscript.hazelight.se/scripting/subsystems/">Subsystems</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/script-tests/">Script Tests</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/cpp-differences/">Differences with Unreal C++</a>
+				</li>
+				</ul>
+			<label>C++ Usage and Bindings</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/automatic-bindings/">Automatic Bindings</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/mixin-libraries/">Script Mixin Libraries</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/precompiled-data/">Using Precompiled Scripts</a>
+				</li>
+				</ul>
+			<label>UE-AS Development</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/development-status/">Development Status</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/resources/">Resources and Links</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/license/">License</a>
+				</li>
+				</ul>
+			</nav>
+		<article>
+			
+	<h1 id="subsystems">Subsystems<a class="zola-anchor" href="#subsystems" aria-label="Anchor link for: subsystems">🔗</a></h1>
+<p>Subsystems are one of unreal's ways to collect common functionality into easily accessible singletons.
+See the <a href="https://docs.unrealengine.com/5.1/en-US/programming-subsystems-in-unreal-engine/">Unreal Documentation on Programming Subsystems</a> for more details.</p>
+<h2 id="using-a-subsystem">Using a Subsystem<a class="zola-anchor" href="#using-a-subsystem" aria-label="Anchor link for: using-a-subsystem">🔗</a></h2>
+<p>Subsystems in script can be retrieved by using <code>USubsystemClass::Get()</code>.</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">TestCreateNewLevel</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">auto</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">LevelEditorSubsystem</span><span style="color: #d4d4d4;"> = </span><span style="color: #4ec9b0;">ULevelEditorSubsystem</span><span style="color: #d4d4d4;">::</span><span style="color: #dcdcaa;">Get</span><span style="color: #d4d4d4;">();</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #9cdcfe;">LevelEditorSubsystem</span><span style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">NewLevel</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"/Game/NewLevel"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
+<blockquote>
+<p><strong>Note:</strong> Many subsystems are <em>Editor Subsystems</em> and cannot be used in packaged games.<br />
+Make sure you only use editor subsystems inside <a href="/scripting/editor-script/">Editor-Only Script</a>.</p>
+</blockquote>
+<h2 id="creating-a-subsystem">Creating a Subsystem<a class="zola-anchor" href="#creating-a-subsystem" aria-label="Anchor link for: creating-a-subsystem">🔗</a></h2>
+<p>To allow creating subsystems in script, helper base classes are available to inherit from that expose overridable functions.<br />
+These are:</p>
+<ul>
+<li><code>UScriptWorldSubsystem</code> for world subsystems</li>
+<li><code>UScriptGameInstanceSubsystem</code> for game instance subsystems</li>
+<li><code>UScriptLocalPlayerSubsystem</code> for local player subsystems</li>
+<li><code>UScriptEditorSubsystem</code> for editor subsystems</li>
+<li><code>UScriptEngineSubsystem</code> for engine subsystems</li>
+</ul>
+<p>For example, a scripted world subsystem might look like this:</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">UMyGameWorldSubsystem</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">UScriptWorldSubsystem</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintOverride</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">Initialize</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"MyGame World Subsystem Initialized!"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintOverride</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">Tick</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">DeltaTime</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"Tick"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #6a9955;">// Create functions on the subsystem to expose functionality</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">LookAtMyActor</span><span style="color: #d4d4d4;">(</span><span style="color: #4ec9b0;">AActor</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Actor</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><div><span style="color: #d4d4d4;">}</span></div><br><div><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">UseMyGameWorldSubsystem</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">auto</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">MySubsystem</span><span style="color: #d4d4d4;"> = </span><span style="color: #4ec9b0;">UMyGameWorldSubsystem</span><span style="color: #d4d4d4;">::</span><span style="color: #dcdcaa;">Get</span><span style="color: #d4d4d4;">();</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #9cdcfe;">MySubsystem</span><span style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">LookAtMyActor</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">nullptr</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
+<p>Any <code>UFUNCTION</code>s you've declared can also be accessed from blueprint on your subsystem:</p>
+<p><img src="/img/scripted-subsystem.png" alt="" /></p>
+<h2 id="local-player-subsystems">Local Player Subsystems<a class="zola-anchor" href="#local-player-subsystems" aria-label="Anchor link for: local-player-subsystems">🔗</a></h2>
+<p>In case of local player subsystems, you need to pass which <code>ULocalPlayer</code> to retrieve the subsystem for into the <code>::Get()</code> function:</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">UMyPlayerSubsystem</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">UScriptLocalPlayerSubsystem</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">}</span></div><br><div><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">UseScriptedPlayerSubsystem</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">ULocalPlayer</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">RelevantPlayer</span><span style="color: #d4d4d4;"> = </span><span style="color: #4ec9b0;">Gameplay</span><span style="color: #d4d4d4;">::</span><span style="color: #dcdcaa;">GetPlayerController</span><span style="color: #d4d4d4;">(</span><span style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">).</span><span style="color: #9cdcfe;">LocalPlayer</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">auto</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">MySubsystem</span><span style="color: #d4d4d4;"> = </span><span style="color: #4ec9b0;">UMyPlayerSubsystem</span><span style="color: #d4d4d4;">::</span><span style="color: #dcdcaa;">Get</span><span style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">RelevantPlayer</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
+<blockquote>
+<p><strong>Note:</strong> It is also possible to directly pass an <code>APlayerController</code> when retrieving a local player subsystem.</p>
+</blockquote>
+
+</article>
+	</main>
+</body>

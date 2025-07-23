@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://angelscript.hazelight.se/docs.css">
+    <link rel="icon" href="https://angelscript.hazelight.se/favicon.svg">
+    <title> Unreal Engine Angelscript | Functions and BlueprintEvents </title>
+</head>
+<body>
+	<main>
+		<nav>
+			<a href="https:&#x2F;&#x2F;angelscript.hazelight.se">
+				<img src="https://angelscript.hazelight.se/angelscript_unreal.png" alt=""/>
+			</a>
+
+			<ul>
+				<li>
+					<a href="https:&#x2F;&#x2F;angelscript.hazelight.se">Home</a>
+				</li>
+				<li>
+					<a href="https://discord.gg/39wmC2e">Join Discord Server</a>
+				</li>
+				<li>
+					<a href="https://angelscript.hazelight.se/api">Script API Reference</a>
+				</li>
+			</ul>
+
+			<label>Getting Started</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/getting-started/installation/">Installation</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/getting-started/introduction/">Scripting Introduction</a>
+				</li>
+				</ul>
+			<label>Script Features</label>
+				<ul>
+				<li class="active">
+					<a href="https://angelscript.hazelight.se/scripting/functions-and-events/">Functions and BlueprintEvents</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/properties-and-accessors/">Properties and Accessors</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/actors-components/">Actors and Components</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/function-libraries/">Function Libraries</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/fname-literals/">FName Literals</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/format-strings/">Formatted Strings</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/structs-refs/">Structs and References</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/networking-features/">Networking Features</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/delegates/">Delegates and Events</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/mixin-methods/">Mixin Methods</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/gameplaytags/">Gameplay Tags</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/editor-script/">Editor-Only Script</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/subsystems/">Subsystems</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/script-tests/">Script Tests</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/cpp-differences/">Differences with Unreal C++</a>
+				</li>
+				</ul>
+			<label>C++ Usage and Bindings</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/automatic-bindings/">Automatic Bindings</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/mixin-libraries/">Script Mixin Libraries</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/precompiled-data/">Using Precompiled Scripts</a>
+				</li>
+				</ul>
+			<label>UE-AS Development</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/development-status/">Development Status</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/resources/">Resources and Links</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/license/">License</a>
+				</li>
+				</ul>
+			</nav>
+		<article>
+			
+	<h1 id="functions-and-blueprintevents">Functions and BlueprintEvents<a class="zola-anchor" href="#functions-and-blueprintevents" aria-label="Anchor link for: functions-and-blueprintevents">🔗</a></h1>
+<h2 id="plain-script-functions">Plain Script Functions<a class="zola-anchor" href="#plain-script-functions" aria-label="Anchor link for: plain-script-functions">🔗</a></h2>
+<p>Functions can be declared as methods in a class or globally.
+By default any function you declare can only be called from script and is not accessible to blueprint.</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: Consolas, 'Courier New', monospace;font-weight: normal;font-size: 16px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">AExampleActor</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">AActor</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">MyMethod</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">MyGlobalFunction</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">this</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><div><span style="color: #d4d4d4;">}</span></div><br><div><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">MyGlobalFunction</span><span style="color: #d4d4d4;">(</span><span style="color: #4ec9b0;">AActor</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Actor</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">if</span><span style="color: #d4d4d4;"> (!</span><span style="color: #9cdcfe;">Actor</span><span style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">IsHidden</span><span style="color: #d4d4d4;">())</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">Actor</span><span style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">DestroyActor</span><span style="color: #d4d4d4;">();</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
+<h2 id="functions-that-can-be-called-from-blueprint">Functions that can be called from Blueprint<a class="zola-anchor" href="#functions-that-can-be-called-from-blueprint" aria-label="Anchor link for: functions-that-can-be-called-from-blueprint">🔗</a></h2>
+<p>To make it so a function can be called from blueprint, add a <code>UFUNCTION()</code> specifier above it.</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: Consolas, 'Courier New', monospace;font-weight: normal;font-size: 16px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">AExampleActor</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">AActor</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">MyMethodForBlueprint</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"I can be called from a blueprint!"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
+<blockquote>
+<p><strong>Note:</strong> Unlike in C++, it is not necessary to specify <code>BlueprintCallable</code>, it is assumed by default.</p>
+</blockquote>
+<h2 id="overriding-blueprintevents-from-c">Overriding BlueprintEvents from C++<a class="zola-anchor" href="#overriding-blueprintevents-from-c" aria-label="Anchor link for: overriding-blueprintevents-from-c">🔗</a></h2>
+<p>To override a Blueprint Event declared from a C++ parent class, use the <code>BlueprintOverride</code> specifier.
+You will use this often to override common events such as <code>BeginPlay</code> or <code>Tick</code>:</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">AExampleActor</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">AActor</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintOverride</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">BeginPlay</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"I am a BeginPlay override"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintOverride</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">Tick</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">DeltaSeconds</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"I get called every tick"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
+<p>The visual studio code extension has helpers for easily overriding blueprint events from parent classes.</p>
+<p>When the cursor is within a class, you can click the Lightbulb icon (or press <kbd>Ctrl</kbd> + <kbd>.</kbd> by default) to choose a function to override:</p>
+<p><img src="/img/override-lightbulb.png" alt="" /></p>
+<p>Typing the name of an overridable event also suggests a completion for the full function signature:</p>
+<p><img src="/img/override-completion.png" alt="" /></p>
+<blockquote>
+<p><strong>Note:</strong> For C++ functions that don't explicitly specify a <code>ScriptName</code> meta tag, some name simplification is automatically done to remove common prefixes.<br />
+For example, the C++ event is called <code>ReceiveBeginPlay</code>, but the preceeding <code>Receive</code> is removed and it just becomes <code>BeginPlay</code> in script.<br />
+Other prefixes that are removed automatically are <code>BP_</code>, <code>K2_</code> and <code>Received_</code>.</p>
+</blockquote>
+<h2 id="overriding-a-script-function-from-blueprint">Overriding a Script Function from Blueprint<a class="zola-anchor" href="#overriding-a-script-function-from-blueprint" aria-label="Anchor link for: overriding-a-script-function-from-blueprint">🔗</a></h2>
+<p>Often you will want to create a blueprint that inherits from a script parent class.
+In order to make a function so it can be overridden from a child blueprint, add the <code>BlueprintEvent</code> specifier.</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">AExampleActor</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">AActor</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintEvent</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">OverridableFunction</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"This will only print if not overridden from a child BP."</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
+<blockquote>
+<p><strong>Note:</strong> Script has no split between <code>BlueprintImplementableEvent</code> and <code>BlueprintNativeEvent</code><br />
+like C++ has. All script functions require a base implementation, although it can be left empty.</p>
+</blockquote>
+<h3 id="tip-separate-blueprint-events">Tip: Separate Blueprint Events<a class="zola-anchor" href="#tip-separate-blueprint-events" aria-label="Anchor link for: tip-separate-blueprint-events">🔗</a></h3>
+<p>One pattern that is employed often in Unreal is to have separate base and blueprint events.
+This way you can guarantee that the script code always runs in addition to nodes in the child blueprint, and you will never run into issues if the blueprint hasn't done "Add call to parent function".</p>
+<p>For example, a pickup actor might do:</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">AExamplePickupActor</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">AActor</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">PickedUp</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// We always want this script code to run, even if our blueprint child wants to do something too</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #d7ba7d;">f"</span><span style="color: #ce9178;">Pickup </span><span style="color: #569cd6;">{this}</span><span style="color: #ce9178;"> was picked up!</span><span style="color: #d7ba7d;">"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">SetActorHiddenInGame</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">false</span><span style="color: #d4d4d4;">);</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// Call the separate blueprint event</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">BP_PickedUp</span><span style="color: #d4d4d4;">();</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #6a9955;">// Allows blueprints to add functionality, does not contain any code</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintEvent</span><span style="color: #d4d4d4;">, </span><span style="color: #569cd6;">DisplayName</span><span style="color: #d4d4d4;"> = </span><span style="color: #ce9178;">"Picked Up"</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">BP_PickedUp</span><span style="color: #d4d4d4;">() {}</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
+<p><img src="/img/bp-override.png" alt="" /></p>
+<h2 id="global-functions">Global Functions<a class="zola-anchor" href="#global-functions" aria-label="Anchor link for: global-functions">🔗</a></h2>
+<p>Any script function in global scope can also have <code>UFUNCTION()</code> added to it.
+It will then be available to be called from any blueprint like a static function.</p>
+<p>This lets you create functions not bound to a class, similar to how Blueprint Function Libraries work.</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: Consolas, 'Courier New', monospace;font-weight: normal;font-size: 16px;line-height: 21px;white-space: pre;"><div><span style="color: #6a9955;">// Example global function that moves an actor somewhat</span></div><div><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">ExampleGlobalFunctionMoveActor</span><span style="color: #d4d4d4;">(</span><span style="color: #4ec9b0;">AActor</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Actor</span><span style="color: #d4d4d4;">, </span><span style="color: #4ec9b0;">FVector</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">MoveAmount</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #9cdcfe;">Actor</span><span style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">ActorLocation</span><span style="color: #d4d4d4;"> += </span><span style="color: #9cdcfe;">MoveAmount</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
+<p><img src="/img/example-global-function.png" alt="" /></p>
+<blockquote>
+<p><strong>Tip:</strong> Comments above function declarations become tooltips in blueprint, just like in C++</p>
+</blockquote>
+<h2 id="calling-super-methods">Calling Super Methods<a class="zola-anchor" href="#calling-super-methods" aria-label="Anchor link for: calling-super-methods">🔗</a></h2>
+<p>When overriding a script function with another script function, you can use the same <code>Super::</code> syntax from Unreal to call the parent function.
+Note that script methods can be overridden without needing <code>BlueprintEvent</code> on the base function (all script methods are virtual). However, when overriding a <code>BlueprintEvent</code>, you <em>will</em> need to specify <code>BlueprintOverride</code> on the overrides.</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">AScriptParentActor</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">AActor</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">PlainMethod</span><span style="color: #d4d4d4;">(</span><span style="color: #4ec9b0;">FVector</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Location</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"AScriptParentActor::PlainMethod()"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintEvent</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">BlueprintEventMethod</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Value</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"AScriptParentActor::BlueprintEventMethod()"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><div><span style="color: #d4d4d4;">}</span></div><br><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">AScriptChildActor</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">AScriptParentActor</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #6a9955;">// Any script method can be overridden</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">PlainMethod</span><span style="color: #d4d4d4;">(</span><span style="color: #4ec9b0;">FVector</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Location</span><span style="color: #d4d4d4;">) </span><span style="color: #569cd6;">override</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #4ec9b0;">Super</span><span style="color: #d4d4d4;">::</span><span style="color: #dcdcaa;">PlainMethod</span><span style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">Location</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"AScriptChildActor::PlainMethod()"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #6a9955;">// Overriding a parent BlueprintEvent requires BlueprintOverride</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintOverride</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">BlueprintEventMethod</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Value</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #4ec9b0;">Super</span><span style="color: #d4d4d4;">::</span><span style="color: #dcdcaa;">BlueprintEventMethod</span><span style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">Value</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"AScriptChildActor::BlueprintEventMethod()"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
+<blockquote>
+<p><strong>Note:</strong> When overriding a C++ <code>BlueprintNativeEvent</code>, it is not possible to call the C++ Super method due to a technical limitation. You can either prefer creating <code>BlueprintImplementableEvent</code>s, or put the base implementation in a separate callable function.</p>
+</blockquote>
+
+</article>
+	</main>
+</body>

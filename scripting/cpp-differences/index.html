@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://angelscript.hazelight.se/docs.css">
+    <link rel="icon" href="https://angelscript.hazelight.se/favicon.svg">
+    <title> Unreal Engine Angelscript | Differences with Unreal C++ </title>
+</head>
+<body>
+	<main>
+		<nav>
+			<a href="https:&#x2F;&#x2F;angelscript.hazelight.se">
+				<img src="https://angelscript.hazelight.se/angelscript_unreal.png" alt=""/>
+			</a>
+
+			<ul>
+				<li>
+					<a href="https:&#x2F;&#x2F;angelscript.hazelight.se">Home</a>
+				</li>
+				<li>
+					<a href="https://discord.gg/39wmC2e">Join Discord Server</a>
+				</li>
+				<li>
+					<a href="https://angelscript.hazelight.se/api">Script API Reference</a>
+				</li>
+			</ul>
+
+			<label>Getting Started</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/getting-started/installation/">Installation</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/getting-started/introduction/">Scripting Introduction</a>
+				</li>
+				</ul>
+			<label>Script Features</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/functions-and-events/">Functions and BlueprintEvents</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/properties-and-accessors/">Properties and Accessors</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/actors-components/">Actors and Components</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/function-libraries/">Function Libraries</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/fname-literals/">FName Literals</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/format-strings/">Formatted Strings</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/structs-refs/">Structs and References</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/networking-features/">Networking Features</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/delegates/">Delegates and Events</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/mixin-methods/">Mixin Methods</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/gameplaytags/">Gameplay Tags</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/editor-script/">Editor-Only Script</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/subsystems/">Subsystems</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/script-tests/">Script Tests</a>
+				</li>
+				<li class="active">
+					<a href="https://angelscript.hazelight.se/scripting/cpp-differences/">Differences with Unreal C++</a>
+				</li>
+				</ul>
+			<label>C++ Usage and Bindings</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/automatic-bindings/">Automatic Bindings</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/mixin-libraries/">Script Mixin Libraries</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/precompiled-data/">Using Precompiled Scripts</a>
+				</li>
+				</ul>
+			<label>UE-AS Development</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/development-status/">Development Status</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/resources/">Resources and Links</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/license/">License</a>
+				</li>
+				</ul>
+			</nav>
+		<article>
+			
+	<h1 id="overview-of-differences-for-c-unreal-developers">Overview of Differences for C++ Unreal Developers<a class="zola-anchor" href="#overview-of-differences-for-c-unreal-developers" aria-label="Anchor link for: overview-of-differences-for-c-unreal-developers">🔗</a></h1>
+<p>While the script files will feel familiar to developers used to working in C++ with Unreal, there are a number of differences.
+Most of the differences are intended to simplify the script language for people coming in from using Blueprint.</p>
+<p>Some differences you will most likely run into are highlighted here.</p>
+<h2 id="objects-instead-of-pointers">Objects Instead of Pointers<a class="zola-anchor" href="#objects-instead-of-pointers" aria-label="Anchor link for: objects-instead-of-pointers">🔗</a></h2>
+<p>Any variable declared with a <code>UObject</code> type is automatically an object reference. Pointers do not exist in the script language.
+This is similar to how object reference variables work in blueprint.
+There is no <code>-&gt;</code> arrow operator in script, everything happens with <code>.</code> dots.</p>
+<blockquote>
+<p><strong>Note:</strong> Unlike in C++, it is <strong>not</strong> necessary to declare a property as <code>UPROPERTY()</code> in order to avoid it being garbage collected. All object references in script are automatically inserted into the GC.</p>
+</blockquote>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">TeleportActorToOtherActor</span><span style="color: #d4d4d4;">(</span><span style="color: #4ec9b0;">AActor</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">ActorReference</span><span style="color: #d4d4d4;">, </span><span style="color: #4ec9b0;">AActor</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">TeleportToActor</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">FTransform</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">TeleportToTransform</span><span style="color: #d4d4d4;"> = </span><span style="color: #9cdcfe;">TeleportToActor</span><span style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">GetActorTransform</span><span style="color: #d4d4d4;">();</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #9cdcfe;">ActorReference</span><span style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">SetActorTransform</span><span style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">TeleportToTransform</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
+<h2 id="default-accessibility-for-properties">Default Accessibility for Properties<a class="zola-anchor" href="#default-accessibility-for-properties" aria-label="Anchor link for: default-accessibility-for-properties">🔗</a></h2>
+<p><code>UPROPERTY()</code> variables are <code>EditAnywhere</code> and <code>BlueprintReadWrite</code> by default. This can be overridden by specifying <code>NotBlueprintCallable</code> or <code>NotEditable</code>.</p>
+<p>The default access specifiers for properties in script can be configured from Project Settings.</p>
+<p>The intent of this is to simplify property specifiers. Since <code>UPROPERTY()</code> is not needed for correct garbage collection, you should only specify it when you want it to be accessible in the editor/blueprint.</p>
+<h2 id="default-callability-for-functions">Default Callability for Functions<a class="zola-anchor" href="#default-callability-for-functions" aria-label="Anchor link for: default-callability-for-functions">🔗</a></h2>
+<p>Functions declared with <code>UFUNCTION()</code> are <code>BlueprintCallable</code> by default, even when this is not specified explicitly.
+This is intended to simplify function declarations, as making a script function a <code>UFUNCTION()</code> is generally already an indicator of wanting it to be called from blueprint.</p>
+<p>This behavior can be turned off from Project Settings, if you prefer requiring <code>BlueprintCallable</code> to be explicit.</p>
+<h2 id="use-the-default-keyword-instead-of-constructors">Use the <code>default</code> Keyword Instead of Constructors<a class="zola-anchor" href="#use-the-default-keyword-instead-of-constructors" aria-label="Anchor link for: use-the-default-keyword-instead-of-constructors">🔗</a></h2>
+<p>Instead of using object constructors, which can run at unpredictable times during hot reloads, any default values for properties should be specified in the class body.</p>
+<p>For setting values on subobjects, use the <code>default</code> keyword:</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">AExampleActor</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">AActor</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #6a9955;">// Set default values for class properties in the class body</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UPROPERTY</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">ConfigurableValue</span><span style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">5.0</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #6a9955;">// Set default values for subobjects with `default` statements</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UPROPERTY</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">DefaultComponent</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">UCapsuleComponent</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">CapsuleComponent</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">default</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">CapsuleComponent</span><span style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">CapsuleHalfHeight</span><span style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">88.0</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">default</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">CapsuleComponent</span><span style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">CapsuleRadius</span><span style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">40.0</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">default</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">CapsuleComponent</span><span style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">bGenerateOverlapEvents</span><span style="color: #d4d4d4;"> = </span><span style="color: #569cd6;">true</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
+<h2 id="floating-point-width">Floating Point Width<a class="zola-anchor" href="#floating-point-width" aria-label="Anchor link for: floating-point-width">🔗</a></h2>
+<p>With Unreal 5.0, Epic has started using <code>double</code>s for all gameplay-related vectors, rotators, etc.
+Rather than confuse people that are used to working with <code>float</code> in blueprint, they decided to keep calling these doubles <code>float</code> everywhere in the editor like before.</p>
+<p>The angelscript integration follows this decision, meaning that when you declare a <code>float</code> in script, it is actually a 64-bit double value.
+To create a floating-point variable with a specific width, you can explicitly use the <code>float32</code> or <code>float64</code> types.</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">ValueDouble</span><span style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">1.0</span><span style="color: #d4d4d4;">; </span><span style="color: #6a9955;">// &lt;-- This is a 64-bit double-precision float</span></div><div><span style="color: #569cd6;">float32</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">ValueSingle</span><span style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">1.f</span><span style="color: #d4d4d4;">; </span><span style="color: #6a9955;">// &lt;-- This is a 32-bit single-precision float</span></div><div><span style="color: #569cd6;">float64</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">ValueAlsoDouble</span><span style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">1.0</span><span style="color: #d4d4d4;">; </span><span style="color: #6a9955;">// &lt;-- This is *also* a 64-bit double-precision float</span></div></div>
+</article>
+	</main>
+</body>

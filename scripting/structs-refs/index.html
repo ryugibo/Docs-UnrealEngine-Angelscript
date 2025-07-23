@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://angelscript.hazelight.se/docs.css">
+    <link rel="icon" href="https://angelscript.hazelight.se/favicon.svg">
+    <title> Unreal Engine Angelscript | Structs and References </title>
+</head>
+<body>
+	<main>
+		<nav>
+			<a href="https:&#x2F;&#x2F;angelscript.hazelight.se">
+				<img src="https://angelscript.hazelight.se/angelscript_unreal.png" alt=""/>
+			</a>
+
+			<ul>
+				<li>
+					<a href="https:&#x2F;&#x2F;angelscript.hazelight.se">Home</a>
+				</li>
+				<li>
+					<a href="https://discord.gg/39wmC2e">Join Discord Server</a>
+				</li>
+				<li>
+					<a href="https://angelscript.hazelight.se/api">Script API Reference</a>
+				</li>
+			</ul>
+
+			<label>Getting Started</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/getting-started/installation/">Installation</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/getting-started/introduction/">Scripting Introduction</a>
+				</li>
+				</ul>
+			<label>Script Features</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/functions-and-events/">Functions and BlueprintEvents</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/properties-and-accessors/">Properties and Accessors</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/actors-components/">Actors and Components</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/function-libraries/">Function Libraries</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/fname-literals/">FName Literals</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/format-strings/">Formatted Strings</a>
+				</li>
+				<li class="active">
+					<a href="https://angelscript.hazelight.se/scripting/structs-refs/">Structs and References</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/networking-features/">Networking Features</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/delegates/">Delegates and Events</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/mixin-methods/">Mixin Methods</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/gameplaytags/">Gameplay Tags</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/editor-script/">Editor-Only Script</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/subsystems/">Subsystems</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/script-tests/">Script Tests</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/cpp-differences/">Differences with Unreal C++</a>
+				</li>
+				</ul>
+			<label>C++ Usage and Bindings</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/automatic-bindings/">Automatic Bindings</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/mixin-libraries/">Script Mixin Libraries</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/precompiled-data/">Using Precompiled Scripts</a>
+				</li>
+				</ul>
+			<label>UE-AS Development</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/development-status/">Development Status</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/resources/">Resources and Links</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/license/">License</a>
+				</li>
+				</ul>
+			</nav>
+		<article>
+			
+	<h1 id="structs">Structs<a class="zola-anchor" href="#structs" aria-label="Anchor link for: structs">🔗</a></h1>
+<p>Classes declared in script are always types of <code>UObject</code>, and are part of unreal's normal object system and garbage collector.</p>
+<p>You can also make structs in script, which behave as value types:</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">struct</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">FExampleStruct</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #6a9955;">/* Properties with UPROPERTY() in a struct will be accessible in blueprint. */</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UPROPERTY</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">ExampleNumber</span><span style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">4.0</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UPROPERTY</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">FString</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">ExampleString</span><span style="color: #d4d4d4;"> = </span><span style="color: #ce9178;">"Example String"</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #6a9955;">/* Properties without UPROPERTY() will still be in the struct, but cannot be seen by blueprint. */</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">ExampleHiddenNumber</span><span style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">3.0</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">};</span></div></div>
+<blockquote>
+<p><strong>Note:</strong> Unlike classes, structs cannot have <code>UFUNCTION()</code>s. They <em>can</em> have plain script methods on them however, although they will not be usable from blueprint.</p>
+</blockquote>
+<h2 id="passing-and-returning-structs">Passing and Returning Structs<a class="zola-anchor" href="#passing-and-returning-structs" aria-label="Anchor link for: passing-and-returning-structs">🔗</a></h2>
+<p>Structs can be passed and returned from script functions and <code>UFUNCTION</code>s as normal:</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #4ec9b0;">FExampleStruct</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">CreateExampleStruct</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Number</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">FExampleStruct</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">ResultStruct</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #9cdcfe;">ResultStruct</span><span style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">ExampleNumber</span><span style="color: #d4d4d4;"> = </span><span style="color: #9cdcfe;">Number</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #9cdcfe;">ResultStruct</span><span style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">ExampleString</span><span style="color: #d4d4d4;"> = </span><span style="color: #d7ba7d;">f"</span><span style="color: #569cd6;">{</span><span style="color: #9cdcfe;">Number</span><span style="color: #569cd6;">}</span><span style="color: #d7ba7d;">"</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">return</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">ResultStruct</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">}</span></div><br><div><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintPure</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #569cd6;">bool</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">IsNumberInStructEqual</span><span style="color: #d4d4d4;">(</span><span style="color: #4ec9b0;">FExampleStruct</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Struct</span><span style="color: #d4d4d4;">, </span><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">TestNumber</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">return</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Struct</span><span style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">ExampleNumber</span><span style="color: #d4d4d4;"> == </span><span style="color: #9cdcfe;">TestNumber</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
+<h2 id="struct-references">Struct References<a class="zola-anchor" href="#struct-references" aria-label="Anchor link for: struct-references">🔗</a></h2>
+<p>By default, argument values in script functions are read-only.
+That means properties of a struct parameter cannot be changed, and non-const methods cannot be called on it.</p>
+<p>If needed, you can take a reference to a struct to modify it:</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #6a9955;">// Change the parameter struct so its number is randomized between 0.0 and 1.0</span></div><div><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">RandomizeNumberInStruct</span><span style="color: #d4d4d4;">(</span><span style="color: #4ec9b0;">FExampleStruct</span><span style="color: #d4d4d4;">&amp; </span><span style="color: #9cdcfe;">Struct</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #9cdcfe;">Struct</span><span style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">ExampleNumber</span><span style="color: #d4d4d4;"> = </span><span style="color: #4ec9b0;">Math</span><span style="color: #d4d4d4;">::</span><span style="color: #dcdcaa;">RandRange</span><span style="color: #d4d4d4;">(</span><span style="color: #b5cea8;">0.0</span><span style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">1.0</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
+<h2 id="declaring-out-parameters">Declaring Out Parameters<a class="zola-anchor" href="#declaring-out-parameters" aria-label="Anchor link for: declaring-out-parameters">🔗</a></h2>
+<p>When a function with a struct reference is called from a blueprint node, the struct will be passed as an input value:</p>
+<p><img src="/img/struct-input.png" alt="" /></p>
+<p>When you want a struct parameter to be an ouput value only, declare the reference as <code>&amp;out</code> in script. This works to create output pins for primitives as well:</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">OutputRandomizedStruct</span><span style="color: #d4d4d4;">(</span><span style="color: #4ec9b0;">FExampleStruct</span><span style="color: #d4d4d4;">&amp;out </span><span style="color: #9cdcfe;">OutputStruct</span><span style="color: #d4d4d4;">, </span><span style="color: #569cd6;">bool</span><span style="color: #d4d4d4;">&amp;out </span><span style="color: #9cdcfe;">bOutSuccessful</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">FExampleStruct</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">ResultStruct</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #9cdcfe;">ResultStruct</span><span style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">ExampleNumber</span><span style="color: #d4d4d4;"> = </span><span style="color: #4ec9b0;">Math</span><span style="color: #d4d4d4;">::</span><span style="color: #dcdcaa;">RandRange</span><span style="color: #d4d4d4;">(</span><span style="color: #b5cea8;">0.0</span><span style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">1.0</span><span style="color: #d4d4d4;">);</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #9cdcfe;">OutputStruct</span><span style="color: #d4d4d4;"> = </span><span style="color: #9cdcfe;">ResultStruct</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #9cdcfe;">bOutSuccessful</span><span style="color: #d4d4d4;"> = </span><span style="color: #569cd6;">true</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
+<p><img src="/img/struct-multioutput.png" alt="" /></p>
+<h2 id="automatic-references-for-function-parameters">Automatic References for Function Parameters<a class="zola-anchor" href="#automatic-references-for-function-parameters" aria-label="Anchor link for: automatic-references-for-function-parameters">🔗</a></h2>
+<p>As an implementation detail: script functions never take struct parameters by value.<br />
+When you declare a struct parameter, it is internally implemented as a const reference, as if you added <code>const &amp;</code>.</p>
+<p>This means there is no difference between an <code>FVector</code> parameter and a <code>const FVector&amp;</code> parameter. Both behave exactly the same in performance and semantics.</p>
+<p>This choice was made to improve script performance and avoid having to instruct gameplay scripters to write <code>const &amp;</code> on all their parameters.</p>
+
+</article>
+	</main>
+</body>

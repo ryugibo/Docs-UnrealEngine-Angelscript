@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://angelscript.hazelight.se/docs.css">
+    <link rel="icon" href="https://angelscript.hazelight.se/favicon.svg">
+    <title> Unreal Engine Angelscript | Using Precompiled Scripts </title>
+</head>
+<body>
+	<main>
+		<nav>
+			<a href="https:&#x2F;&#x2F;angelscript.hazelight.se">
+				<img src="https://angelscript.hazelight.se/angelscript_unreal.png" alt=""/>
+			</a>
+
+			<ul>
+				<li>
+					<a href="https:&#x2F;&#x2F;angelscript.hazelight.se">Home</a>
+				</li>
+				<li>
+					<a href="https://discord.gg/39wmC2e">Join Discord Server</a>
+				</li>
+				<li>
+					<a href="https://angelscript.hazelight.se/api">Script API Reference</a>
+				</li>
+			</ul>
+
+			<label>Getting Started</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/getting-started/installation/">Installation</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/getting-started/introduction/">Scripting Introduction</a>
+				</li>
+				</ul>
+			<label>Script Features</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/functions-and-events/">Functions and BlueprintEvents</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/properties-and-accessors/">Properties and Accessors</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/actors-components/">Actors and Components</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/function-libraries/">Function Libraries</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/fname-literals/">FName Literals</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/format-strings/">Formatted Strings</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/structs-refs/">Structs and References</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/networking-features/">Networking Features</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/delegates/">Delegates and Events</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/mixin-methods/">Mixin Methods</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/gameplaytags/">Gameplay Tags</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/editor-script/">Editor-Only Script</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/subsystems/">Subsystems</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/script-tests/">Script Tests</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/cpp-differences/">Differences with Unreal C++</a>
+				</li>
+				</ul>
+			<label>C++ Usage and Bindings</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/automatic-bindings/">Automatic Bindings</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/mixin-libraries/">Script Mixin Libraries</a>
+				</li>
+				<li class="active">
+					<a href="https://angelscript.hazelight.se/cpp-bindings/precompiled-data/">Using Precompiled Scripts</a>
+				</li>
+				</ul>
+			<label>UE-AS Development</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/development-status/">Development Status</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/resources/">Resources and Links</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/license/">License</a>
+				</li>
+				</ul>
+			</nav>
+		<article>
+			
+	<h1 id="using-precompiled-scripts">Using Precompiled Scripts</h1>
+<h2 id="functionality">Functionality</h2>
+<p>Normally, when the engine starts up the angelscript plugin will read all <code>.as</code> files in
+your Project's script folder and parse and compile them. This can take a relatively long
+amount of time, especially on platforms with slower CPUs and hard drives.</p>
+<p>In order to improve startup time in packaged builds, it is possible to instruct the
+packaged binary to emit a precompiled script cache. When a precompiled script
+cache file is present, the plugin will load the compiled script bytecode directly
+from the cache, skipping the need to load, parse and compile all the script
+files.</p>
+<p>In addition to this, the plugin is able to generate a directory of C++ code files
+that function the same as the angelscript bytecode for your scripts. Recompiling
+the game binary with these C++ files included in it will then hook into angelscript's
+JIT compilation system to replace virtual machine bytecode execution with native C++.
+This significantly improves runtime execution speed of script code.</p>
+<h2 id="usage">Usage</h2>
+<p>Precompiled script must be generated by the same <code>.exe</code> binary that it will be loaded by.</p>
+<p>To trigger the generation:</p>
+<ul>
+<li>Package your game in the configuration you want to run.</li>
+<li>Run your <code>ProjectName.exe</code> while specifying the <code>-as-generate-precompiled-data</code> command line parameter.</li>
+</ul>
+<p>This generates a file <code>ProjectName/Script/PrecompiledScript.Cache</code> that should be part of your game distribution.</p>
+<p>The next time you run your packaged game, script will be loaded from the precompiled cache instead of from the <code>.as</code> scripts.</p>
+<h2 id="transpiled-c-code">Transpiled C++ Code</h2>
+<p>In addition to the cache, the generate step will also output a folder called <code>AS_JITTED_CODE/</code> with a file in it for every script file that was compiled.</p>
+<p>You can copy this folder into your project's source folder and then rebuild the <code>.exe</code> for your game in the appropriate configuration.</p>
+<p>When including the <code>AS_JITTED_CODE/</code> folder in your project ensure that the module that it's being included it has <code>AngelscriptCode</code> as a dependency, i.e. within your project's Build.cs file.</p>
+<p>Using the new <code>.exe</code> compiled with the included <code>AS_JITTED_CODE/</code> and in combination with the <code>PrecompiledScript.Cache</code> file will let the
+angelscript plugin automatically run the correct optimized C++ code when executing angelscript.</p>
+<h2 id="compatibility">Compatibility</h2>
+<p>Because precompiled scripts directly contain hardcoded byte offsets to C++ properties and sizes of C++ structures,
+you should never use a <code>PrecompiledScript.Cache</code> file that was generated by a different binary than it is being used by.</p>
+<p>Whenever you rebuild your game's packaged <code>.exe</code>, <strong>always</strong> regenerate the precompiled script cache from that <code>.exe</code>.
+(The necessary exception of course being the rebuild when you add the generated C++ code to the binary)</p>
+<p>The inverse is not necessary: it is possible to change the <code>.as</code> script files and generate a new <code>PrecompiledScript.Cache</code>
+without recompiling the game binary.
+If the old binary contained generated C++ code, it will no longer match the precompiled script cache and will not be used until the binary is rebuilt with the new <code>AS_JITTED_CODE</code>.</p>
+<h2 id="reloading-scripts">Reloading Scripts</h2>
+<p>When using a <code>PrecompiledScript.Cache</code> file, the actual <code>.as</code> script files are not loaded from the script folder. This means
+changes to those files will not be used, and hot reload is disabled.</p>
+<p>In order to circumvent loading precompiled scripts when they are present, you can pass the <code>-as-development-mode</code> command line parameter to your packaged game binary.</p>
+
+</article>
+	</main>
+</body>

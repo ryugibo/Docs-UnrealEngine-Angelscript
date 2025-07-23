@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://angelscript.hazelight.se/docs.css">
+    <link rel="icon" href="https://angelscript.hazelight.se/favicon.svg">
+    <title> Unreal Engine Angelscript | Scripting Introduction </title>
+</head>
+<body>
+	<main>
+		<nav>
+			<a href="https:&#x2F;&#x2F;angelscript.hazelight.se">
+				<img src="https://angelscript.hazelight.se/angelscript_unreal.png" alt=""/>
+			</a>
+
+			<ul>
+				<li>
+					<a href="https:&#x2F;&#x2F;angelscript.hazelight.se">Home</a>
+				</li>
+				<li>
+					<a href="https://discord.gg/39wmC2e">Join Discord Server</a>
+				</li>
+				<li>
+					<a href="https://angelscript.hazelight.se/api">Script API Reference</a>
+				</li>
+			</ul>
+
+			<label>Getting Started</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/getting-started/installation/">Installation</a>
+				</li>
+				<li class="active">
+					<a href="https://angelscript.hazelight.se/getting-started/introduction/">Scripting Introduction</a>
+				</li>
+				</ul>
+			<label>Script Features</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/functions-and-events/">Functions and BlueprintEvents</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/properties-and-accessors/">Properties and Accessors</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/actors-components/">Actors and Components</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/function-libraries/">Function Libraries</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/fname-literals/">FName Literals</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/format-strings/">Formatted Strings</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/structs-refs/">Structs and References</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/networking-features/">Networking Features</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/delegates/">Delegates and Events</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/mixin-methods/">Mixin Methods</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/gameplaytags/">Gameplay Tags</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/editor-script/">Editor-Only Script</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/subsystems/">Subsystems</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/script-tests/">Script Tests</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/cpp-differences/">Differences with Unreal C++</a>
+				</li>
+				</ul>
+			<label>C++ Usage and Bindings</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/automatic-bindings/">Automatic Bindings</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/mixin-libraries/">Script Mixin Libraries</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/precompiled-data/">Using Precompiled Scripts</a>
+				</li>
+				</ul>
+			<label>UE-AS Development</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/development-status/">Development Status</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/resources/">Resources and Links</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/license/">License</a>
+				</li>
+				</ul>
+			</nav>
+		<article>
+			
+	<h1 id="scripting-introduction">Scripting Introduction</h1>
+<p>This introduction will run you through how to create your first Actor class in script,
+and how to interact with it in unreal and blueprint.</p>
+<h2 id="setup">Setup</h2>
+<p>Make sure you have the following set up:</p>
+<ul>
+<li>Install or compile the custom engine build for UnrealEngine-Angelscript.</li>
+<li>Install <a href="https://code.visualstudio.com/">Visual Studio Code</a>.</li>
+<li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=Hazelight.unreal-angelscript">Unreal Angelscript Extension</a> for visual studio code.</li>
+</ul>
+<blockquote>
+<p>See the <a href="/getting-started/installation/">Installation</a> page for details.</p>
+</blockquote>
+<h2 id="starting-the-project">Starting the Project</h2>
+<ul>
+<li>Start the custom unreal editor and open your project.<br />
+Opening your project will automatically create an empty <code>Script/</code> folder inside your project folder.</li>
+<li>Start Visual Studio Code, and from the menu <code>File -&gt; Open Folder</code>, open your new <code>MyProject/Script/</code> folder.</li>
+</ul>
+<blockquote>
+<p><strong>Tip:</strong> You can also click the "Open Angelscript workspace" option from the Tools menu to automatically open the scripts folder in Visual Studio Code.
+<img src="/img/open-workspace.png" alt="" /></p>
+</blockquote>
+<h2 id="creating-the-actor-class">Creating the Actor Class</h2>
+<p>Within Visual Studio Code, create a new file and call it <code>IntroductionActor.as</code>.</p>
+<p>Files with the <code>.as</code> extension placed under your project's <code>Script/</code> folder are automatically loaded by the angelscript plugin.</p>
+<p>Inside <code>IntroductionActor.as</code>, let's declare a new Actor class:</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">AIntroductionActor</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">AActor</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
+<p>We've now created our first scripted Actor!</p>
+<h2 id="placing-the-actor-in-unreal">Placing the Actor in Unreal</h2>
+<p>Immediately after hitting "Save" on our script file, it should become available within the unreal editor.</p>
+<ul>
+<li>Open the <code>Place Actors</code> panel (this can be found in Unreal's <code>Window</code> menu if you don't have it open already).</li>
+<li>Search for "Introduction Actor". Your new scripted actor should appear in the list.</li>
+<li>Place the "Introduction Actor" into your level.</li>
+</ul>
+<p><img src="/img/place-actors.png" alt="" /></p>
+<h2 id="adding-functionality-to-the-actor">Adding Functionality to the Actor</h2>
+<p>We have a totally empty actor in the level now with no functionality.
+As an example, let's make this actor perform a configurable countdown:</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">AIntroductionActor</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">AActor</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UPROPERTY</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">CountdownDuration</span><span style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">5.0</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">CurrentTimer</span><span style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">0.0</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">bool</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">bCountdownActive</span><span style="color: #d4d4d4;"> = </span><span style="color: #569cd6;">false</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintOverride</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">BeginPlay</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// Start the countdown on beginplay with the configured duration</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">CurrentTimer</span><span style="color: #d4d4d4;"> = </span><span style="color: #9cdcfe;">CountdownDuration</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">bCountdownActive</span><span style="color: #d4d4d4;"> = </span><span style="color: #569cd6;">true</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintOverride</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">Tick</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">DeltaSeconds</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #569cd6;">if</span><span style="color: #d4d4d4;"> (</span><span style="color: #9cdcfe;">bCountdownActive</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// Count down the timer </span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">CurrentTimer</span><span style="color: #d4d4d4;"> -= </span><span style="color: #9cdcfe;">DeltaSeconds</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #569cd6;">if</span><span style="color: #d4d4d4;"> (</span><span style="color: #9cdcfe;">CurrentTimer</span><span style="color: #d4d4d4;"> &lt;= </span><span style="color: #b5cea8;">0.0</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// The countdown was complete!</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// Print a message to the screen</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"Countdown was completed!"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">bCountdownActive</span><span style="color: #d4d4d4;"> = </span><span style="color: #569cd6;">false</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; }</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; }</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
+<p>Some of the important things that are happening here:</p>
+<ul>
+<li>The <code>CountdownDuration</code> variable has been declared as a <code>UPROPERTY()</code>, this makes it configurable from the Unreal editor. You can select the actor in the level and change the countdown duration to be higher or lower than the default 5 seconds.<br />
+<em>See the documentation on <a href="/scripting/properties-and-accessors/">Properties and Accessors</a></em><br />
+<img src="/img/countdown-duration.png" alt="" /></li>
+<li>We override the <code>BeginPlay</code> and <code>Tick</code> events to implement functionality on the actor.<br />
+<em>See the documentation on <a href="/scripting/functions-and-events/">Functions and BlueprintEvents</a></em></li>
+<li>When BeginPlay happens, we start our countdown.</li>
+<li>When Tick happens, we count down the countdown and check if it's complete.</li>
+<li>After the countdown is done, we use <code>Print()</code> to show a message on screen.</li>
+</ul>
+<p>Now, if you play the level the actor is placed in and wait 5 seconds, you will see the message appear:
+<img src="/img/countdown-print.png" alt="" /></p>
+<h2 id="adding-components-to-the-actor">Adding Components to the Actor</h2>
+<p>Right now, our Actor is still empty of any components, and only implements some functionality on tick.</p>
+<p>Let's add some components to it! We want a <code>Scene Component</code> as the root, and then attach a <code>Static Mesh Component</code> and a <code>Billboard Component</code> to it.</p>
+<p>Add the following at the top of your actor code:</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">AIntroductionActor</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">AActor</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UPROPERTY</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">DefaultComponent</span><span style="color: #d4d4d4;">, </span><span style="color: #569cd6;">RootComponent</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">USceneComponent</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">SceneRoot</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UPROPERTY</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">DefaultComponent</span><span style="color: #d4d4d4;">, </span><span style="color: #569cd6;">Attach</span><span style="color: #d4d4d4;"> = SceneRoot)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">UStaticMeshComponent</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Mesh</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UPROPERTY</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">DefaultComponent</span><span style="color: #d4d4d4;">, </span><span style="color: #569cd6;">Attach</span><span style="color: #d4d4d4;"> = SceneRoot)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">UBillboardComponent</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Billboard</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">....</span></div></div>
+<p>When you save your script file, you should see the new components appear on the Introduction Actor you've placed in the level.</p>
+<p>You can read more about adding components on the <a href="/scripting/actors-components/">Actors and Components</a> page.</p>
+<p><img src="/img/intro-components.png" alt="" /></p>
+<blockquote>
+<p><strong>Tip:</strong> Clicking one of the <em>"Edit in C++"</em> links in the components menu will jump your Visual Studio Code to the place the component is added in your script.<br />
+The angelscript plugin often hooks into Unreal's normal C++ functionality, so script classes behave like C++ classes in many ways.</p>
+</blockquote>
+<h2 id="creating-a-blueprint-actor">Creating a Blueprint Actor</h2>
+<p>The actor now has a Static Mesh Component, but we can't see it because no Static Mesh has been chosen on it!</p>
+<p>We could of course select the actor in the level and choose one, but we don't want to do that for each actor we place individually.</p>
+<p>Instead, let's create a Blueprint of our new introduction actor:</p>
+<ul>
+<li>Open the Content Browser, and click <code>Add -&gt; Blueprint Class</code>, to use the normal way to create a new blueprint.</li>
+<li>When asked to pick a Parent Class, search for our "Introduction Actor" and select it:<br />
+<img src="/img/bp-pickparent.png" alt="" /></li>
+<li>Let's call our new blueprint <code>BP_IntroductionActor</code>, so it's clear that we're dealing with an actor blueprint.</li>
+<li>Now we can open our new blueprint and choose a mesh for its Static Mesh Component.<br />
+Here I am choosing the engine's standard <code>SM_Cube</code> mesh, but feel free to choose one of your own.<br />
+<img src="/img/choose-staticmesh.png" alt="" /></li>
+<li>Make sure to remove the existing <code>IntroductionActor</code> from your level, and place a new <code>BP_IntroductionActor</code> in the level so we can see it!</li>
+</ul>
+<h2 id="calling-in-and-out-of-blueprint">Calling in and out of Blueprint</h2>
+<p>Now that we have a blueprint, we can change the script to work together with its node graph:</p>
+<ul>
+<li>We will change the actor so the countdown is no longer started right away, but requires a function call to start it.</li>
+<li>We also add an overridable blueprint event so our actor blueprint can be notified when the countdown is finished.</li>
+</ul>
+<p>In our <code>IntroductionActor.as</code>, change the script code for its BeginPlay and Tick functions to this:</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintOverride</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">BeginPlay</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// We no longer start the countdown on BeginPlay automatically</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">StartCountdown</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// Start the countdown when StartCountdown() is called </span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">CurrentTimer</span><span style="color: #d4d4d4;"> = </span><span style="color: #9cdcfe;">CountdownDuration</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">bCountdownActive</span><span style="color: #d4d4d4;"> = </span><span style="color: #569cd6;">true</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #6a9955;">/**</span></div><div><span style="color: #6a9955;">&#160; &#160; &#160;* Declare an overridable event so the actor blueprint can</span></div><div><span style="color: #6a9955;">&#160; &#160; &#160;* respond when the countdown finishes</span></div><div><span style="color: #6a9955;">&#160; &#160; &#160;*/</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintEvent</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">FinishedCountdown</span><span style="color: #d4d4d4;">() {}</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UFUNCTION</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">BlueprintOverride</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">Tick</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">DeltaSeconds</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; </span><span style="color: #569cd6;">if</span><span style="color: #d4d4d4;"> (</span><span style="color: #9cdcfe;">bCountdownActive</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// Count down the timer </span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">CurrentTimer</span><span style="color: #d4d4d4;"> -= </span><span style="color: #9cdcfe;">DeltaSeconds</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #569cd6;">if</span><span style="color: #d4d4d4;"> (</span><span style="color: #9cdcfe;">CurrentTimer</span><span style="color: #d4d4d4;"> &lt;= </span><span style="color: #b5cea8;">0.0</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; {</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// The countdown was complete!</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// Print a message to the screen</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"Countdown was completed!"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #6a9955;">// Also: trigger a blueprint event</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #dcdcaa;">FinishedCountdown</span><span style="color: #d4d4d4;">();</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; </span><span style="color: #9cdcfe;">bCountdownActive</span><span style="color: #d4d4d4;"> = </span><span style="color: #569cd6;">false</span><span style="color: #d4d4d4;">;</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; &#160; &#160; }</span></div><div><span style="color: #d4d4d4;">&#160; &#160; &#160; &#160; }</span></div><div><span style="color: #d4d4d4;">&#160; &#160; }</span></div></div>
+<p>After saving this change, we can now open <code>BP_IntroductionActor</code>, and add nodes like this:</p>
+<p><img src="/img/intro-bpnodes.png" alt="" /></p>
+<p>Now, the blueprint must specifically start the countdown, and when the countdown is finished the blueprint will automatically destroy the actor.</p>
+<p>If you play the level with the blueprint placed, you will see it disappear after 5 seconds.</p>
+<h1 id="script-examples">Script Examples</h1>
+<p>The <code>UnrealEngine-Angelscript</code> project contains a <code>Script-Examples/</code> folder.<br />
+Here, you can find more detailed example scripts that you can read or copy to your project.</p>
+<ul>
+<li>
+<p>One good place to start is the <a href="https://github.com/Hazelight/UnrealEngine-Angelscript/blob/angelscript-master/Script-Examples/Examples/Example_MovingObject.as">Example_MovingObject.as</a> actor example.</p>
+</li>
+<li>
+<p>You can also look through the <a href="https://github.com/Hazelight/UnrealEngine-Angelscript/tree/angelscript-master/Script-Examples/Examples">Examples Folder on Github</a>.</p>
+</li>
+</ul>
+<h1 id="further-reading">Further Reading</h1>
+<p>More documentation is available on this website in the sidebar to the left.</p>
+<p>We recommend reading through at least the "Script Features" pages to get an overview of what can be done in scripts.</p>
+<p>Some good starting points are:</p>
+<ul>
+<li><a href="/scripting/functions-and-events/">Functions and BlueprintEvents</a></li>
+<li><a href="/scripting/function-libraries/">Function Libraries</a></li>
+<li><a href="/scripting/cpp-differences/">Differences with Unreal C++</a></li>
+</ul>
+
+</article>
+	</main>
+</body>

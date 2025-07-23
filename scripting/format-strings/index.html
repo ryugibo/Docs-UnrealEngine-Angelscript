@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://angelscript.hazelight.se/docs.css">
+    <link rel="icon" href="https://angelscript.hazelight.se/favicon.svg">
+    <title> Unreal Engine Angelscript | Formatted Strings </title>
+</head>
+<body>
+	<main>
+		<nav>
+			<a href="https:&#x2F;&#x2F;angelscript.hazelight.se">
+				<img src="https://angelscript.hazelight.se/angelscript_unreal.png" alt=""/>
+			</a>
+
+			<ul>
+				<li>
+					<a href="https:&#x2F;&#x2F;angelscript.hazelight.se">Home</a>
+				</li>
+				<li>
+					<a href="https://discord.gg/39wmC2e">Join Discord Server</a>
+				</li>
+				<li>
+					<a href="https://angelscript.hazelight.se/api">Script API Reference</a>
+				</li>
+			</ul>
+
+			<label>Getting Started</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/getting-started/installation/">Installation</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/getting-started/introduction/">Scripting Introduction</a>
+				</li>
+				</ul>
+			<label>Script Features</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/functions-and-events/">Functions and BlueprintEvents</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/properties-and-accessors/">Properties and Accessors</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/actors-components/">Actors and Components</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/function-libraries/">Function Libraries</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/fname-literals/">FName Literals</a>
+				</li>
+				<li class="active">
+					<a href="https://angelscript.hazelight.se/scripting/format-strings/">Formatted Strings</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/structs-refs/">Structs and References</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/networking-features/">Networking Features</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/delegates/">Delegates and Events</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/mixin-methods/">Mixin Methods</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/gameplaytags/">Gameplay Tags</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/editor-script/">Editor-Only Script</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/subsystems/">Subsystems</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/script-tests/">Script Tests</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/scripting/cpp-differences/">Differences with Unreal C++</a>
+				</li>
+				</ul>
+			<label>C++ Usage and Bindings</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/automatic-bindings/">Automatic Bindings</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/mixin-libraries/">Script Mixin Libraries</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/cpp-bindings/precompiled-data/">Using Precompiled Scripts</a>
+				</li>
+				</ul>
+			<label>UE-AS Development</label>
+				<ul>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/development-status/">Development Status</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/resources/">Resources and Links</a>
+				</li>
+				<li >
+					<a href="https://angelscript.hazelight.se/project/license/">License</a>
+				</li>
+				</ul>
+			</nav>
+		<article>
+			
+	<h1 id="formatted-strings">Formatted Strings<a class="zola-anchor" href="#formatted-strings" aria-label="Anchor link for: formatted-strings">🔗</a></h1>
+<p>Scripts have support for writing formatted string literals in order to place the value of variables or expressions within a string.
+This can be especially useful for logging or debugging.</p>
+<p>The syntax and format specifiers are heavily inspired by <a href="https://peps.python.org/pep-0498/">Python's f-string feature</a>.</p>
+<p>Formatted strings are declared with the prefix <code>f""</code>, and expression values to interpolate are contained within <code>{}</code>.
+Curly braces inside formatted strings can be escaped by doubling up. That is, <code>f"{{"</code> is equivalent to <code>"{"</code>.</p>
+<p>An example of some of the usages:</p>
+<div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: Consolas, 'Courier New', monospace;font-weight: normal;font-size: 16px;line-height: 21px;white-space: pre;"><div><span style="color: #6a9955;">// Format Strings begin with f" and can hold expressions</span></div><div><span style="color: #6a9955;">// inside braces to replace within the string.</span></div><div><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #d7ba7d;">f"</span><span style="color: #ce9178;">Called from actor </span><span style="color: #569cd6;">{</span><span style="color: #dcdcaa;">GetName</span><span style="color: #d4d4d4;">()</span><span style="color: #569cd6;">}</span><span style="color: #ce9178;"> at location </span><span style="color: #569cd6;">{</span><span style="color: #9cdcfe;">ActorLocation</span><span style="color: #569cd6;">}</span><span style="color: #d7ba7d;">"</span><span style="color: #d4d4d4;">);</span></div><br><div><span style="color: #6a9955;">// Adding a = at the end of the expression will print the expression first</span></div><div><span style="color: #6a9955;">// For example:</span></div><div><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #d7ba7d;">f"</span><span style="color: #569cd6;">{</span><span style="color: #9cdcfe;">DeltaSeconds</span><span style="color: #d4d4d4;"> </span><span style="color: #569cd6;">=}</span><span style="color: #d7ba7d;">"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #6a9955;">// This prints:</span></div><div><span style="color: #6a9955;">// &#160; DeltaSeconds = 0.01</span></div><br><div><span style="color: #6a9955;">// Format specifiers can be added following similar syntax to python's f-strings:</span></div><div><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #d7ba7d;">f"</span><span style="color: #ce9178;">Three Decimals: </span><span style="color: #569cd6;">{</span><span style="color: #9cdcfe;">ActorLocation</span><span style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">Z</span><span style="color: #569cd6;"> :.3}</span><span style="color: #d7ba7d;">"</span><span style="color: #d4d4d4;">); </span><span style="color: #6a9955;">// Format float at three decimals of precision</span></div><br><div><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #d7ba7d;">f"</span><span style="color: #ce9178;">Extended to 10 digits with leading zeroes: </span><span style="color: #569cd6;">{</span><span style="color: #b5cea8;">400</span><span style="color: #569cd6;"> :010d}</span><span style="color: #d7ba7d;">"</span><span style="color: #d4d4d4;">); </span><span style="color: #6a9955;">// 0000000400</span></div><div><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #d7ba7d;">f"</span><span style="color: #ce9178;">Hexadecimal: </span><span style="color: #569cd6;">{</span><span style="color: #b5cea8;">20</span><span style="color: #569cd6;"> :#x}</span><span style="color: #d7ba7d;">"</span><span style="color: #d4d4d4;">); </span><span style="color: #6a9955;">// 0x14</span></div><div><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #d7ba7d;">f"</span><span style="color: #ce9178;">Binary: </span><span style="color: #569cd6;">{</span><span style="color: #b5cea8;">1574</span><span style="color: #569cd6;"> :b}</span><span style="color: #d7ba7d;">"</span><span style="color: #d4d4d4;">); </span><span style="color: #6a9955;">// 11000100110</span></div><div><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #d7ba7d;">f"</span><span style="color: #ce9178;">Binary 32 Bits: </span><span style="color: #569cd6;">{</span><span style="color: #b5cea8;">1574</span><span style="color: #569cd6;"> :#032b}</span><span style="color: #d7ba7d;">"</span><span style="color: #d4d4d4;">); </span><span style="color: #6a9955;">// 0b00000000000000000000011000100110</span></div><br><div><span style="color: #6a9955;">// Alignment works too</span></div><div><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #d7ba7d;">f"</span><span style="color: #ce9178;">Aligned: </span><span style="color: #569cd6;">{</span><span style="color: #dcdcaa;">GetName</span><span style="color: #d4d4d4;">()</span><span style="color: #569cd6;"> :&gt;40}</span><span style="color: #d7ba7d;">"</span><span style="color: #d4d4d4;">); </span><span style="color: #6a9955;">// Adds spaces to the start of GetName() so it is 40 characters</span></div><div><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #d7ba7d;">f"</span><span style="color: #ce9178;">Aligned: </span><span style="color: #569cd6;">{</span><span style="color: #dcdcaa;">GetName</span><span style="color: #d4d4d4;">()</span><span style="color: #569cd6;"> :_&lt;40}</span><span style="color: #d7ba7d;">"</span><span style="color: #d4d4d4;">); </span><span style="color: #6a9955;">// Adds underscores to the end of GetName() so it is 40 characters</span></div><br><div><span style="color: #6a9955;">// You can combine the equals with a format specifier</span></div><div><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #d7ba7d;">f"</span><span style="color: #569cd6;">{</span><span style="color: #9cdcfe;">DeltaSeconds</span><span style="color: #d4d4d4;"> </span><span style="color: #569cd6;">=:.0}</span><span style="color: #d7ba7d;">"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #6a9955;">// This prints:</span></div><div><span style="color: #6a9955;">// &#160; DeltaSeconds = 0</span></div><br><div><span style="color: #6a9955;">// Enums by default print a full debug string</span></div><div><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #d7ba7d;">f"</span><span style="color: #569cd6;">{</span><span style="color: #4ec9b0;">ESlateVisibility</span><span style="color: #d4d4d4;">::</span><span style="color: #9cdcfe;">Collapsed</span><span style="color: #569cd6;">}</span><span style="color: #d7ba7d;">"</span><span style="color: #d4d4d4;">); </span><span style="color: #6a9955;">// "ESlateVisibility::Collapsed (1)"</span></div><div><span style="color: #6a9955;">// But the 'n' specifier prints only the name of the value:</span></div><div><span style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span style="color: #d7ba7d;">f"</span><span style="color: #569cd6;">{</span><span style="color: #4ec9b0;">ESlateVisibility</span><span style="color: #d4d4d4;">::</span><span style="color: #9cdcfe;">Collapsed</span><span style="color: #569cd6;"> :n}</span><span style="color: #d7ba7d;">"</span><span style="color: #d4d4d4;">); </span><span style="color: #6a9955;">// "Collapsed"</span></div></div>
+</article>
+	</main>
+</body>
