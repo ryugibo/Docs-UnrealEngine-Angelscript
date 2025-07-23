@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 Allow: /
-Sitemap: https://angelscript.hazelight.se/sitemap.xml
+Sitemap: https://ryugibo.github.io/ueas/sitemap.xml

@@ -1,87 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://angelscript.hazelight.se/</loc>
+        <loc>https://ryugibo.github.io/ueas/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/cpp-bindings/</loc>
+        <loc>https://ryugibo.github.io/ueas/cpp-bindings/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/cpp-bindings/automatic-bindings/</loc>
+        <loc>https://ryugibo.github.io/ueas/cpp-bindings/automatic-bindings/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/cpp-bindings/mixin-libraries/</loc>
+        <loc>https://ryugibo.github.io/ueas/cpp-bindings/mixin-libraries/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/cpp-bindings/precompiled-data/</loc>
+        <loc>https://ryugibo.github.io/ueas/cpp-bindings/precompiled-data/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/getting-started/</loc>
+        <loc>https://ryugibo.github.io/ueas/getting-started/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/getting-started/installation/</loc>
+        <loc>https://ryugibo.github.io/ueas/getting-started/installation/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/getting-started/introduction/</loc>
+        <loc>https://ryugibo.github.io/ueas/getting-started/introduction/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/project/</loc>
+        <loc>https://ryugibo.github.io/ueas/project/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/project/development-status/</loc>
+        <loc>https://ryugibo.github.io/ueas/project/development-status/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/project/license/</loc>
+        <loc>https://ryugibo.github.io/ueas/project/license/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/project/resources/</loc>
+        <loc>https://ryugibo.github.io/ueas/project/resources/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/scripting/</loc>
+        <loc>https://ryugibo.github.io/ueas/scripting/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/scripting/actors-components/</loc>
+        <loc>https://ryugibo.github.io/ueas/scripting/actors-components/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/scripting/cpp-differences/</loc>
+        <loc>https://ryugibo.github.io/ueas/scripting/cpp-differences/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/scripting/delegates/</loc>
+        <loc>https://ryugibo.github.io/ueas/scripting/delegates/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/scripting/editor-script/</loc>
+        <loc>https://ryugibo.github.io/ueas/scripting/editor-script/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/scripting/fname-literals/</loc>
+        <loc>https://ryugibo.github.io/ueas/scripting/fname-literals/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/scripting/format-strings/</loc>
+        <loc>https://ryugibo.github.io/ueas/scripting/format-strings/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/scripting/function-libraries/</loc>
+        <loc>https://ryugibo.github.io/ueas/scripting/function-libraries/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/scripting/functions-and-events/</loc>
+        <loc>https://ryugibo.github.io/ueas/scripting/functions-and-events/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/scripting/gameplaytags/</loc>
+        <loc>https://ryugibo.github.io/ueas/scripting/gameplaytags/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/scripting/mixin-methods/</loc>
+        <loc>https://ryugibo.github.io/ueas/scripting/mixin-methods/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/scripting/networking-features/</loc>
+        <loc>https://ryugibo.github.io/ueas/scripting/networking-features/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/scripting/properties-and-accessors/</loc>
+        <loc>https://ryugibo.github.io/ueas/scripting/properties-and-accessors/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/scripting/script-tests/</loc>
+        <loc>https://ryugibo.github.io/ueas/scripting/script-tests/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/scripting/structs-refs/</loc>
+        <loc>https://ryugibo.github.io/ueas/scripting/structs-refs/</loc>
     </url>
     <url>
-        <loc>https://angelscript.hazelight.se/scripting/subsystems/</loc>
+        <loc>https://ryugibo.github.io/ueas/scripting/subsystems/</loc>
     </url>
 </urlset>
