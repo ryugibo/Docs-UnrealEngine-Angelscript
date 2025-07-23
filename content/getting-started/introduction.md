@@ -21,7 +21,7 @@ Make sure you have the following set up:
 * Start Visual Studio Code, and from the menu `File -> Open Folder`, open your new `MyProject/Script/` folder.
 
 > **Tip:** You can also click the "Open Angelscript workspace" option from the Tools menu to automatically open the scripts folder in Visual Studio Code.
-> {{ img(path="path="open-workspace.png"") }}
+> {{ img(path="open-workspace.png") }}
 
 ## Creating the Actor Class
 Within Visual Studio Code, create a new file and call it `IntroductionActor.as`.
@@ -41,7 +41,7 @@ Immediately after hitting "Save" on our script file, it should become available 
 * Search for "Introduction Actor". Your new scripted actor should appear in the list.
 * Place the "Introduction Actor" into your level.
 
-{{ img(path="path="place-actors.png"") }}
+{{ img(path="place-actors.png") }}
 
 ## Adding Functionality to the Actor
 We have a totally empty actor in the level now with no functionality.
