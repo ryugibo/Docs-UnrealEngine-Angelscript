@@ -15,7 +15,7 @@ Subsystems in script can be retrieved by using `USubsystemClass::Get()`.
 <div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">TestCreateNewLevel</span><span style="color: #d4d4d4;">()</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">auto</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">LevelEditorSubsystem</span><span style="color: #d4d4d4;"> = </span><span style="color: #4ec9b0;">ULevelEditorSubsystem</span><span style="color: #d4d4d4;">::</span><span style="color: #dcdcaa;">Get</span><span style="color: #d4d4d4;">();</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #9cdcfe;">LevelEditorSubsystem</span><span style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">NewLevel</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"/Game/NewLevel"</span><span style="color: #d4d4d4;">);</span></div><div><span style="color: #d4d4d4;">}</span></div></div>
 
 > **Note:** Many subsystems are _Editor Subsystems_ and cannot be used in packaged games.  
-> Make sure you only use editor subsystems inside [Editor-Only Script](scripting/editor-script/).
+> Make sure you only use editor subsystems inside [Editor-Only Script](@/scripting/editor-script.md).
 
 ## Creating a Subsystem
 

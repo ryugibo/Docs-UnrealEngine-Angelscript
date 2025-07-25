@@ -16,7 +16,7 @@ Make sure you have the following set up:
 - Install [Visual Studio Code](https://code.visualstudio.com/).
 - Install the [Unreal Angelscript Extension](https://marketplace.visualstudio.com/items?itemName=Hazelight.unreal-angelscript) for visual studio code.
 
-> See the [Installation](getting-started/installation/) page for details.
+> See the [Installation](@/getting-started/installation.md) page for details.
 
 ## Starting the Project
 
@@ -59,10 +59,10 @@ As an example, let's make this actor perform a configurable countdown:
 Some of the important things that are happening here:
 
 - The `CountdownDuration` variable has been declared as a `UPROPERTY()`, this makes it configurable from the Unreal editor. You can select the actor in the level and change the countdown duration to be higher or lower than the default 5 seconds.  
-  _See the documentation on [Properties and Accessors](scripting/properties-and-accessors/)_  
+  _See the documentation on [Properties and Accessors](@/scripting/properties-and-accessors.md)_  
   {{ img(path="countdown-duration.png") }}
 - We override the `BeginPlay` and `Tick` events to implement functionality on the actor.  
-  _See the documentation on [Functions and BlueprintEvents](scripting/functions-and-events/)_
+  _See the documentation on [Functions and BlueprintEvents](@/scripting/functions-and-events.md)_
 - When BeginPlay happens, we start our countdown.
 - When Tick happens, we count down the countdown and check if it's complete.
 - After the countdown is done, we use `Print()` to show a message on screen.
@@ -82,7 +82,7 @@ Add the following at the top of your actor code:
 
 When you save your script file, you should see the new components appear on the Introduction Actor you've placed in the level.
 
-You can read more about adding components on the [Actors and Components](scripting/actors-components/) page.
+You can read more about adding components on the [Actors and Components](@/scripting/actors-components.md) page.
 
 {{ img(path="intro-components.png") }}
 
@@ -142,6 +142,6 @@ We recommend reading through at least the "Script Features" pages to get an over
 
 Some good starting points are:
 
-- [Functions and BlueprintEvents](scripting/functions-and-events/)
-- [Function Libraries](scripting/function-libraries/)
-- [Differences with Unreal C++](scripting/cpp-differences/)
+- [Functions and BlueprintEvents](@/scripting/functions-and-events.md)
+- [Function Libraries](@/scripting/function-libraries.md)
+- [Differences with Unreal C++](@/scripting/cpp-differences.md)

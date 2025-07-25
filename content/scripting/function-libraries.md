@@ -17,11 +17,11 @@ For example, to set a timer you can call `System::SetTimer()`:
 
 Clicking the library will bring you to the API documentation for them, listing the available functions:
 
-- [Math::](api/index.html#CClass:Math) - All standard math functionality
-- [Gameplay::](api/index.html#CClass:Gameplay) - Game functionality such as streaming, damage, player handling
-- [System::](api/index.html#CClass:System) - Engine functionality such as timers, traces, debug rendering
-- [Niagara::](api/index.html#CClass:Niagara) - Spawning and controlling particle systems
-- [Widget::](api/index.html#CClass:Widget) - UMG widget functionality
+- [Math::](http://angelscript.hazelight.se/api/index.html#CClass:Math) - All standard math functionality
+- [Gameplay::](http://angelscript.hazelight.se/api/index.html#CClass:Gameplay) - Game functionality such as streaming, damage, player handling
+- [System::](http://angelscript.hazelight.se/api/index.html#CClass:System) - Engine functionality such as timers, traces, debug rendering
+- [Niagara::](http://angelscript.hazelight.se/api/index.html#CClass:Niagara) - Spawning and controlling particle systems
+- [Widget::](http://angelscript.hazelight.se/api/index.html#CClass:Widget) - UMG widget functionality
 
 ## Namespace Simplification
 
