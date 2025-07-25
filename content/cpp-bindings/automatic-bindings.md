@@ -39,7 +39,7 @@ To expose a property to Angelscript without exposing it to blueprint, you can us
 Properties that are declared with any of the editable flags (`EditAnywhere`, `EditInstanceOnly` or `EditDefaultsOnly`) are also exposed to script.
 
 > **Note:** If a property has an editable flag, but not a blueprint access flag, it will **only** be accessible in script from inside a class `default` statement.
-> _See [Default Statements](scripting/actors-components/#default-statements)._
+> _See [Default Statements](@/scripting/actors-components.md#default-statements)._
 
 ### Skipping Properties
 
@@ -57,7 +57,7 @@ To expose a function to Angelscript without exposing it to blueprint, you can us
 
 `UFUNCTION`s with the `BlueprintImplementableEvent` and `BlueprintNativeEvent` specifiers can be overridden from script as well as blueprint.
 
-> See [Overriding BlueprintEvents from C++](scripting/functions-and-events/#overriding-blueprintevents-from-c)
+> See [Overriding BlueprintEvents from C++](@/scripting/functions-and-events.md#overriding-blueprintevents-from-c)
 
 ### Skipping Functions
 
@@ -73,7 +73,7 @@ There is no deprecation warning functionality in script, so engine upgrades may 
 
 Static functions declared on `UCLASS`es are bound as namespaced global functions in script.
 
-Note that for static functions only, the name of the class will go through [Namespace Simplification](scripting/function-libraries/#namespace-simplification) when they are bound.
+Note that for static functions only, the name of the class will go through [Namespace Simplification](@/scripting/function-libraries.md#namespace-simplification) when they are bound.
 
 ## Enum Bindings
 

@@ -7,11 +7,11 @@ title = "Index"
 UnrealEngine-Angelscript is a set of engine modifications and a plugin for UE5 that integrates a
 full-featured scripting language.  
 It is actively developed by [Hazelight](http://hazelight.se), creators of [Split Fiction](https://www.ea.com/games/split-fiction/split-fiction) and [It Takes Two](https://www.ea.com/games/it-takes-two), which were shipped with the majority of their gameplay written in angelscript.  
-Games from [several other studios](project/resources) have also been released using UnrealEngine-Angelscript.
+Games from [several other studios](@/project/resources.md) have also been released using UnrealEngine-Angelscript.
 
 The unreal plugin that integrates angelscript is open source, and has received contributions from studios in Stockholm and globally.
 
-See [Scripting Introduction](getting-started/introduction) for an introduction to the scripting language.
+See [Scripting Introduction](@/getting-started/introduction.md) for an introduction to the scripting language.
 
 Come talk to us in our [Discord Server](https://discord.gg/39wmC2e) if you're interested or have questions!
 
@@ -26,7 +26,7 @@ Some key benefits that this plugin helps achieve:
 
 - **Rapid Iteration** - Scripts can be reloaded instantly in the editor, letting developers focus on creating cool shit instead of waiting for compiles and editor restarts.
 - **Improved Cooperation** - Because programmers and designers are no longer separated by the C++/Blueprint divide, they can work closely together using the same systems and tools.
-- **Performance** - Angelscript performs significantly better than blueprint for game scripting, and approaches native C++ performance when using [transpiled scripts](cpp-bindings/precompiled-data) in a shipping build.
+- **Performance** - Angelscript performs significantly better than blueprint for game scripting, and approaches native C++ performance when using [transpiled scripts](@/cpp-bindings/precompiled-data.md) in a shipping build.
 
 ## Features
 
