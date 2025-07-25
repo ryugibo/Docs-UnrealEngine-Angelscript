@@ -120,7 +120,7 @@ and how to interact with it in unreal and blueprint.</p>
 <li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=Hazelight.unreal-angelscript">Unreal Angelscript Extension</a> for visual studio code.</li>
 </ul>
 <blockquote>
-<p>See the <a href="https://ryugibo.github.io/ueas/getting-started/introduction/getting-started/installation/">Installation</a> page for details.</p>
+<p>See the <a href="https://ryugibo.github.io/ueas/getting-started/installation/">Installation</a> page for details.</p>
 </blockquote>
 <h2 id="starting-the-project">Starting the Project</h2>
 <ul>
@@ -154,11 +154,11 @@ As an example, let's make this actor perform a configurable countdown:</p>
 <p>Some of the important things that are happening here:</p>
 <ul>
 <li>The <code>CountdownDuration</code> variable has been declared as a <code>UPROPERTY()</code>, this makes it configurable from the Unreal editor. You can select the actor in the level and change the countdown duration to be higher or lower than the default 5 seconds.<br />
-<em>See the documentation on <a href="https://ryugibo.github.io/ueas/getting-started/introduction/scripting/properties-and-accessors/">Properties and Accessors</a></em><br />
+<em>See the documentation on <a href="https://ryugibo.github.io/ueas/scripting/properties-and-accessors/">Properties and Accessors</a></em><br />
 
 <img src="https://ryugibo.github.io/ueas/img/countdown-duration.png" alt="" /></li>
 <li>We override the <code>BeginPlay</code> and <code>Tick</code> events to implement functionality on the actor.<br />
-<em>See the documentation on <a href="https://ryugibo.github.io/ueas/getting-started/introduction/scripting/functions-and-events/">Functions and BlueprintEvents</a></em></li>
+<em>See the documentation on <a href="https://ryugibo.github.io/ueas/scripting/functions-and-events/">Functions and BlueprintEvents</a></em></li>
 <li>When BeginPlay happens, we start our countdown.</li>
 <li>When Tick happens, we count down the countdown and check if it's complete.</li>
 <li>After the countdown is done, we use <code>Print()</code> to show a message on screen.</li>
@@ -172,7 +172,7 @@ As an example, let's make this actor perform a configurable countdown:</p>
 <p>Add the following at the top of your actor code:</p>
 <div class="code_block" style="color: #d4d4d4;background-color: #1e1e1e;font-family: 'Terminus (TTF) for Windows', Consolas, 'Courier New', monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;"><div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">AIntroductionActor</span><span style="color: #d4d4d4;"> : </span><span style="color: #4ec9b0;">AActor</span></div><div><span style="color: #d4d4d4;">{</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UPROPERTY</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">DefaultComponent</span><span style="color: #d4d4d4;">, </span><span style="color: #569cd6;">RootComponent</span><span style="color: #d4d4d4;">)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">USceneComponent</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">SceneRoot</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UPROPERTY</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">DefaultComponent</span><span style="color: #d4d4d4;">, </span><span style="color: #569cd6;">Attach</span><span style="color: #d4d4d4;"> = SceneRoot)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">UStaticMeshComponent</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Mesh</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4fc1ff;">UPROPERTY</span><span style="color: #d4d4d4;">(</span><span style="color: #569cd6;">DefaultComponent</span><span style="color: #d4d4d4;">, </span><span style="color: #569cd6;">Attach</span><span style="color: #d4d4d4;"> = SceneRoot)</span></div><div><span style="color: #d4d4d4;">&#160; &#160; </span><span style="color: #4ec9b0;">UBillboardComponent</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">Billboard</span><span style="color: #d4d4d4;">;</span></div><br><div><span style="color: #d4d4d4;">....</span></div></div>
 <p>When you save your script file, you should see the new components appear on the Introduction Actor you've placed in the level.</p>
-<p>You can read more about adding components on the <a href="https://ryugibo.github.io/ueas/getting-started/introduction/scripting/actors-components/">Actors and Components</a> page.</p>
+<p>You can read more about adding components on the <a href="https://ryugibo.github.io/ueas/scripting/actors-components/">Actors and Components</a> page.</p>
 
 <img src="https://ryugibo.github.io/ueas/img/intro-components.png" alt="" />
 <blockquote>
@@ -224,9 +224,9 @@ Here, you can find more detailed example scripts that you can read or copy to yo
 <p>We recommend reading through at least the "Script Features" pages to get an overview of what can be done in scripts.</p>
 <p>Some good starting points are:</p>
 <ul>
-<li><a href="https://ryugibo.github.io/ueas/getting-started/introduction/scripting/functions-and-events/">Functions and BlueprintEvents</a></li>
-<li><a href="https://ryugibo.github.io/ueas/getting-started/introduction/scripting/function-libraries/">Function Libraries</a></li>
-<li><a href="https://ryugibo.github.io/ueas/getting-started/introduction/scripting/cpp-differences/">Differences with Unreal C++</a></li>
+<li><a href="https://ryugibo.github.io/ueas/scripting/functions-and-events/">Functions and BlueprintEvents</a></li>
+<li><a href="https://ryugibo.github.io/ueas/scripting/function-libraries/">Function Libraries</a></li>
+<li><a href="https://ryugibo.github.io/ueas/scripting/cpp-differences/">Differences with Unreal C++</a></li>
 </ul>
 
 </article>
