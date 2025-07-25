@@ -129,7 +129,7 @@ If it can be used from Blueprint, it should be usable from Angelscript.</p>
 <p>Properties that are declared with any of the editable flags (<code>EditAnywhere</code>, <code>EditInstanceOnly</code> or <code>EditDefaultsOnly</code>) are also exposed to script.</p>
 <blockquote>
 <p><strong>Note:</strong> If a property has an editable flag, but not a blueprint access flag, it will <strong>only</strong> be accessible in script from inside a class <code>default</code> statement.
-<em>See <a href="https://ryugibo.github.io/ueas/cpp-bindings/automatic-bindings/scripting/actors-components/#default-statements">Default Statements</a>.</em></p>
+<em>See <a href="https://ryugibo.github.io/ueas/scripting/actors-components/#default-statements">Default Statements</a>.</em></p>
 </blockquote>
 <h3 id="skipping-properties">Skipping Properties</h3>
 <p>Properties can be skipped for angelscript binds even if they are otherwise accessible to blueprint by adding the <code>NotInAngelscript</code> metadata.</p>
@@ -140,7 +140,7 @@ If it can be used from Blueprint, it should be usable from Angelscript.</p>
 <h3 id="blueprint-events">Blueprint Events</h3>
 <p><code>UFUNCTION</code>s with the <code>BlueprintImplementableEvent</code> and <code>BlueprintNativeEvent</code> specifiers can be overridden from script as well as blueprint.</p>
 <blockquote>
-<p>See <a href="https://ryugibo.github.io/ueas/cpp-bindings/automatic-bindings/scripting/functions-and-events/#overriding-blueprintevents-from-c">Overriding BlueprintEvents from C++</a></p>
+<p>See <a href="https://ryugibo.github.io/ueas/scripting/functions-and-events/#overriding-blueprintevents-from-c">Overriding BlueprintEvents from C++</a></p>
 </blockquote>
 <h3 id="skipping-functions">Skipping Functions</h3>
 <p>Functions can be skipped for angelscript binds even if they are otherwise accessible to blueprint by adding the <code>NotInAngelscript</code> metadata.</p>
@@ -149,7 +149,7 @@ If it can be used from Blueprint, it should be usable from Angelscript.</p>
 <p>There is no deprecation warning functionality in script, so engine upgrades may necessitate script changes when Epic deprecates certain APIs.</p>
 <h2 id="static-functions">Static Functions</h2>
 <p>Static functions declared on <code>UCLASS</code>es are bound as namespaced global functions in script.</p>
-<p>Note that for static functions only, the name of the class will go through <a href="https://ryugibo.github.io/ueas/cpp-bindings/automatic-bindings/scripting/function-libraries/#namespace-simplification">Namespace Simplification</a> when they are bound.</p>
+<p>Note that for static functions only, the name of the class will go through <a href="https://ryugibo.github.io/ueas/scripting/function-libraries/#namespace-simplification">Namespace Simplification</a> when they are bound.</p>
 <h2 id="enum-bindings">Enum Bindings</h2>
 <p>Any <code>UENUM()</code> declared in C++ is automatically usable in script.</p>
 
